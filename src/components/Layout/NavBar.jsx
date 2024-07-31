@@ -7,7 +7,7 @@ import {
 
 const NavBar = () => {
   return (
-    <div className="bg-white h-24 mb-64 flex items-baseline pt-9 pb-2 justify-between px-32 border-b border-gray-300">
+    <div className="bg-white h-24 flex items-baseline pt-9 pb-2 justify-between px-32 border border-gray-300">
       <div className="text-2xl font-bold">SnapShop</div>
       <ul className="flex space-x-12">
         <li>
