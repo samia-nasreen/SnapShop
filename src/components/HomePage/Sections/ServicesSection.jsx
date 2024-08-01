@@ -9,7 +9,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <div className="services-section my-16 px-4 py-8 relative">
+    <div className="services-section my-16 px-16 py-8 relative">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         <div className="service-item flex flex-col items-center">
           <div className="icon-wrapper bg-zinc-300 rounded-full p-4 mb-4">
@@ -45,7 +45,7 @@ const ServicesSection = () => {
           <p>We return money within 30 days</p>
         </div>
       </div>
-      <div className="flex justify-end mt-24 -mb-12">
+      <div className="flex justify-end -mr-8 mt-24 -mb-12">
         <button
           className="bg-gray-200 p-4 rounded-full shadow-lg hover:bg-gray-300 transition"
           onClick={scrollToTop}
