@@ -20,7 +20,6 @@ const ExploreSection = () => {
           ratingCount: product.rating.count,
         }));
 
-        // Select 8 random products
         const selectedProducts = [];
         while (selectedProducts.length < 8 && formattedProducts.length > 0) {
           const randomIndex = Math.floor(
@@ -48,7 +47,7 @@ const ExploreSection = () => {
           <ProductCard product={product} key={product.id} />
         ))}
       </div>
-      <div className="mt-4 text-center">
+      <div className="mt-12 text-center">
         <button className="bg-red-500 text-sm text-white px-10 py-4 rounded">
           View All Products
         </button>

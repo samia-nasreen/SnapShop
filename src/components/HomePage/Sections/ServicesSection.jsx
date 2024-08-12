@@ -1,6 +1,6 @@
-import DeliveryIcon from "../../../assets/shipped.png";
-import CustomerServiceIcon from "../../../assets/support.png";
-import MoneyBackIcon from "../../../assets/secure.png";
+import DeliveryIcon from "../../../assets/icon-delivery.png";
+import CustomerServiceIcon from "../../../assets/icon-headphone.png";
+import MoneyBackIcon from "../../../assets/icon-secure.png";
 import UpArrowIcon from "../../../assets/arrow_up_icon.png";
 
 const ServicesSection = () => {

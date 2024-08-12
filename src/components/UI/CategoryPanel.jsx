@@ -5,7 +5,7 @@ const CategoryPanel = () => {
         <li className="cursor-pointer hover:text-gray-700">Woman’s Fashion</li>
         <li className="cursor-pointer hover:text-gray-700">Men’s Fashion</li>
         <li className="cursor-pointer hover:text-gray-700">Electronics</li>
-        <li className="cursor-pointer hover:text-gray-700">Home & Lifestyle</li>
+        <li className="cursor-pointer hover:text-gray-700">Jewellery</li>
         <li className="cursor-pointer hover:text-gray-700">Medicine</li>
         <li className="cursor-pointer hover:text-gray-700">Sports & Outdoor</li>
         <li className="cursor-pointer hover:text-gray-700">Baby’s & Toys</li>

@@ -1,6 +1,31 @@
 /* eslint-disable react/prop-types */
+import { useDispatch, useSelector } from "react-redux";
+import { wishlistActions } from "../../store/wishlist";
+import { cartActions } from "../../store/cart";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const wishlist = useSelector((state) => state.wishlist.items);
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const isInWishlist = wishlist.some((item) => item.id === product.id);
+  const isInCart = cartItems.some((item) => item.id === product.id);
+
+  const handleWishlistToggle = () => {
+    if (isInWishlist) {
+      dispatch(wishlistActions.removeFromWishlist(product.id));
+    } else {
+      dispatch(wishlistActions.addToWishlist(product));
+    }
+  };
+
+  const handleAddToCart = () => {
+    if (!isInCart) {
+      dispatch(cartActions.addToCart({ ...product, quantity: 1 }));
+    }
+  };
+
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -34,18 +59,25 @@ const ProductCard = ({ product }) => {
   return (
     <div className="product-card max-w-64 shadow-inner rounded-lg p-4 relative overflow-hidden group cursor-pointer">
       <div className="relative w-full h-48 flex items-center justify-center overflow-hidden">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-auto h-48 object-center rounded-t-lg"
-        />
+        <Link to={`/products/${product.id}`}>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-auto h-48 object-center rounded-t-lg"
+          />
+        </Link>
         <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-medium px-2 py-1 rounded">
           -{product.discount}%
         </div>
         <div className="absolute top-2 right-2 flex space-x-2">
-          <button className="bg-white p-1 rounded-full shadow-md">
+          <button
+            className={`bg-white p-1 rounded-full shadow-md ${
+              isInWishlist ? "text-red-500" : "text-gray-600"
+            }`}
+            onClick={handleWishlistToggle}
+          >
             <svg
-              className="w-4 h-4 text-gray-600"
+              className="w-4 h-4"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -56,7 +88,9 @@ const ProductCard = ({ product }) => {
           </button>
         </div>
         <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-100 text-white text-sm text-center  rounded-b py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <button className="w-full">Add To Cart</button>
+          <button className="w-full" onClick={handleAddToCart}>
+            Add To Cart
+          </button>
         </div>
       </div>
       <div className="mt-4">

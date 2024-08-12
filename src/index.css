@@ -19,3 +19,55 @@
 .group:hover .svg-icon {
   color: white;
 }
+
+.input {
+  @apply w-full p-3 border border-gray-300 rounded mb-4;
+}
+
+.btn {
+  @apply py-4 rounded text-white;
+}
+
+.btn-primary {
+  @apply bg-red-500;
+}
+
+.btn-google {
+  @apply bg-white border-[1.5px] border-gray-300 text-black flex items-center justify-center;
+}
+
+.error {
+  @apply text-red-500 text-sm mb-2;
+}
+
+.form-input {
+  width: 100%;
+  padding-left: 0;
+  border: none;
+  border-bottom: 1px solid #666;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+.form-input::placeholder {
+  color: #939ba4;
+}
+
+.form-input:focus {
+  border-bottom-color: #666;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+.wishlist-icon {
+  stroke: black;
+}
+.wishlist-icon-active {
+  stroke: red;
+}
