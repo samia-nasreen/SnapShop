@@ -19,12 +19,12 @@ const stats = [
 
 const Stats = () => {
   return (
-    <div className="category-section mt-20 mb-12 px-4 bg-white relative">
-      <div className="flex justify-between">
+    <div className="category-section mt-20 mb-12 px-5 bg-white relative">
+      <div className="flex flex-wrap justify-between gap-4">
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="group flex flex-col items-center w-72 h-64 p-8 pt-12 border-2 border-zinc-200 hover:border-white rounded-md transition-transform hover:bg-red-500 hover:text-white"
+            className="group flex flex-col items-center w-full sm:w-72 h-64 p-8 pt-12 border-2 border-zinc-200 hover:border-white rounded-md transition-transform hover:bg-red-500 hover:text-white"
           >
             <div className="relative flex justify-center items-center mb-4">
               <div className="absolute w-[88px] h-[88px] bg-zinc-300 rounded-full transition group-hover:bg-red-200"></div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
+import { IoIosMenu, IoIosClose } from "react-icons/io";
 
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -8,6 +9,7 @@ const capitalizeFirstLetter = (string) => {
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const {
     register,
     handleSubmit,
@@ -33,19 +35,27 @@ const ProfilePage = () => {
     console.log(data);
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
   if (!userData) {
-    return <div>Loading...</div>;
+    return <div className="flex items-center justify-center p-4">Loading...</div>;
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <div className="container mx-auto mt-8 mb-32 p-5">
+    <div className="min-h-screen flex justify-center items-center relative">
+      <div className="container mx-auto mt-4 mb-32 p-5">
         <div className="flex justify-between">
-          <div className="text-xs text-gray-500 mb-12 mt-2 ml-2">
+          <div className="text-xs text-gray-500 mb-12 ml-3">
             <span className="mr-2">Home</span> /{" "}
             <span className="ml-2 text-black">My Account</span>
           </div>
-          <div className="text-sm text-gray-500 mb-12 mt-2">
+          <div className="text-sm text-gray-500 mb-12">
             <span className="mr-1">Welcome!</span>
             <span className="text-red-500">
               {capitalizeFirstLetter(userData.name.firstname)}{" "}
@@ -54,31 +64,52 @@ const ProfilePage = () => {
           </div>
         </div>
         <div className="w-full flex">
-          <div className="w-1/4">
-            <div className="bg-white px-2">
-              <ul className="space-y-4">
-                <li className="text-lg font-medium">Manage My Account</li>
-                <li className="text-red-500 ml-8">My Profile</li>
-                <li className="text-gray-500 ml-8">Address Book</li>
-                <li className="text-gray-500 ml-8">My Payment Options</li>
-              </ul>
-              <ul className="mt-10 space-y-4">
-                <li className="text-lg font-medium">My Orders</li>
-                <li className="text-gray-500 ml-8">My Returns</li>
-                <li className="text-gray-500 ml-8">My Cancellations</li>
-              </ul>
-              <ul className="mt-10 space-y-4">
-                <li className="text-lg font-medium">My WishList</li>
-              </ul>
-            </div>
+          <div className="md:hidden fixed top-4 left-4 z-50">
+            <button onClick={toggleSidebar}>
+              <IoIosMenu size={28} />
+            </button>
           </div>
-          <div className="w-3/4 pl-5">
+
+          <div
+            className={`fixed inset-y-0 left-0 w-64 transform ${
+              isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+            } transition-transform duration-300 ease-in-out bg-white z-40 md:relative md:translate-x-0 md:w-1/4 px-2 py-4 md:py-0`}
+          >
+            <div className="md:hidden flex justify-end p-4">
+              <button onClick={closeSidebar}>
+                <IoIosClose size={28} />
+              </button>
+            </div>
+            <ul className="space-y-4">
+              <li className="text-lg font-medium">Manage My Account</li>
+              <li className="text-red-500 ml-8">My Profile</li>
+              <li className="text-gray-500 ml-8">Address Book</li>
+              <li className="text-gray-500 ml-8">My Payment Options</li>
+            </ul>
+            <ul className="mt-10 space-y-4">
+              <li className="text-lg font-medium">My Orders</li>
+              <li className="text-gray-500 ml-8">My Returns</li>
+              <li className="text-gray-500 ml-8">My Cancellations</li>
+            </ul>
+            <ul className="mt-10 space-y-4">
+              <li className="text-lg font-medium">My WishList</li>
+            </ul>
+          </div>
+
+          {isSidebarOpen && (
+            <div
+              className="fixed inset-0 bg-black opacity-50 z-30"
+              onClick={closeSidebar}
+            ></div>
+          )}
+
+          <div className="w-full md:w-3/4 pl-5">
             <div className="bg-white py-10 px-20 rounded shadow-[0px_0px_8px_2px_rgba(0,0,0,0.05)]">
               <h2 className="text-2xl font-medium text-red-500 mb-5">
                 Edit Your Profile
               </h2>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="grid grid-cols-2 gap-x-16 gap-y-6 mb-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 mb-5">
                   <div>
                     <label className="block font-medium text-gray-700">
                       First Name
@@ -168,7 +199,9 @@ const ProfilePage = () => {
                         type="password"
                         className="mt-1 block w-full p-4 border-none bg-zinc-100 rounded-md"
                         placeholder="Confirm New Password"
-                        {...register("confirmNewPassword", { required: true })}
+                        {...register("confirmNewPassword", {
+                          required: true,
+                        })}
                       />
                       {errors.confirmNewPassword && (
                         <span className="text-red-500 text-sm">

@@ -26,7 +26,7 @@ const Footer = () => {
             </button>
           </form>
         </div>
-        <div className="w-full ml-2 sm:w-1/2 lg:w-1/5 px-4 mb-6">
+        <div className="w-full md:ml-2 sm:ml-0 sm:w-1/2 lg:w-1/5 px-4 mb-6">
           <h2 className="text-lg font-normal mb-4">Support</h2>
           <p className="w-40 mb-4 text-sm font-light">
             111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
@@ -64,7 +64,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="w-full -ml-10 sm:w-1/2 lg:w-1/5 px-4 mb-6">
+        <div className="w-full md:-ml-10 sm:w-1/2 lg:w-1/5 px-4 mb-6">
           <h2 className="text-lg font-normal mb-4">Quick Link</h2>
           <ul>
             <li className="mb-2">
@@ -89,7 +89,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="w-full -ml-10 sm:w-1/2 lg:w-1/5 px-4 mb-6">
+        <div className="w-full md:-ml-10 sm:w-1/2 lg:w-1/5 px-4 mb-6">
           <h2 className="text-lg font-normal mb-4">Download App</h2>
           <p className="mb-3 text-xs text-gray-400">
             Save $3 with App New User Only

@@ -43,7 +43,7 @@ const TopRatedSection = () => {
         <span className="text-red-500 font-semibold">This Month</span>
       </div>
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-4xl font-medium mr-16">Top Rated Products</h2>
+        <h2 className="text-xl md:text-4xl font-medium md:mr-16">Top Rated Products</h2>
         <button className="bg-red-500 text-sm text-white px-10 py-4 rounded">
           View All
         </button>

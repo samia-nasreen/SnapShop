@@ -39,10 +39,10 @@ const ExploreSection = () => {
         <span className="text-red-500 font-semibold">Our Products</span>
       </div>
       <div className="flex items-center mb-6">
-        <h2 className="text-4xl font-medium mr-16 mb-4">Explore Our Products</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mr-16 mb-4">Explore Our Products</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {products.map((product) => (
           <ProductCard product={product} key={product.id} />
         ))}
@@ -57,3 +57,4 @@ const ExploreSection = () => {
 };
 
 export default ExploreSection;
+

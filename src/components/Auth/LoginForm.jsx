@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { authActions } from "../../store/auth";
 import { useDispatch } from "react-redux";
-import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode"; 
 
 const loginSchema = Yup.object().shape({
   username: Yup.string().required("Username is required"),
@@ -57,15 +57,18 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="w-2/3 p-16 mb-20">
+    <div className="flex flex-col lg:flex-row">
+      {/* Image Section - Hidden on small screens */}
+      <div className="hidden lg:block lg:w-2/3 p-16 mb-20">
         <img
           src="/src/assets/signup.png"
           alt="Log in"
           className="h-screen w-full object-cover rounded-r"
         />
       </div>
-      <div className="w-1/3 flex flex-col justify-center p-10 -mt-32">
+
+      {/* Form Section */}
+      <div className="w-full lg:w-1/3 flex flex-col justify-center p-10 lg:-mt-32">
         <h2 className="text-4xl font-medium mb-6">Log in to SnapShop</h2>
         <p className="mb-8">Enter your details below</p>
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-sm">
@@ -73,28 +76,33 @@ const LoginForm = () => {
             type="text"
             {...register("username")}
             placeholder="Username"
-            className="form-input"
+            className="form-input w-full mb-4"
           />
           {errors.username && (
-            <p className="error">{errors.username.message}</p>
+            <p className="error text-red-500 mb-2">{errors.username.message}</p>
           )}
 
           <input
             type="password"
             {...register("password")}
             placeholder="Password"
-            className="form-input"
+            className="form-input w-full mb-4"
           />
           {errors.password && (
-            <p className="error">{errors.password.message}</p>
+            <p className="error text-red-500 mb-2">{errors.password.message}</p>
           )}
 
-          {errorMessage && <p className="error">{errorMessage}</p>}
-          <div className="flex justify-between">
-            <button type="submit" className="btn btn-primary w-32">
+          {errorMessage && (
+            <p className="error text-red-500 mb-4">{errorMessage}</p>
+          )}
+          <div className="flex flex-col sm:flex-row sm:justify-between items-center">
+            <button
+              type="submit"
+              className="btn btn-primary w-full sm:w-32 mb-4 sm:mb-0"
+            >
               Log In
             </button>
-            <p className="mt-4">
+            <p className="mt-4 sm:mt-0">
               <a href="#forgot-password" className="text-red-500">
                 Forgot Password?
               </a>

@@ -31,18 +31,18 @@ const JustForYou = () => {
 
   return (
     <div className="container mx-auto mt-16 mb-24 p-5">
-      <div className="flex justify-between items-center mb-5">
-        <div className="flex items-center mr-2 mb-6">
-          <div className="bg-red-500 w-4 h-8 mr-4 rounded"></div>
-          <span className="text-xl">Just For You</span>
+      <div className="flex flex-row justify-between items-center mb-5">
+        <div className="flex items-center mb-6">
+          <div className="bg-red-500 w-3 h-6 mr-3 rounded"></div>
+          <span className="text-base sm:text-xl">Just For You</span>
         </div>
-        <button className="px-10 py-3 border border-gray-900 rounded-md">
+        <button className="px-4 py-2 sm:px-6 sm:py-3 border border-gray-900 rounded-md text-sm sm:text-base">
           See All
         </button>
       </div>
       <div className="flex flex-wrap">
         {products.map((product) => (
-          <div className="p-4 w-full md:w-1/2 lg:w-1/4" key={product.id}>
+          <div className="p-4 w-full sm:w-1/2 lg:w-1/4" key={product.id}>
             <ProductCard product={product} />
           </div>
         ))}

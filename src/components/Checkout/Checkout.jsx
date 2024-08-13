@@ -38,14 +38,13 @@ const Checkout = () => {
     };
 
     dispatch(ordersActions.placeOrder(orderDetails));
-    console.log(orderDetails);
     dispatch(cartActions.clearCart());
     navigate("/");
   };
 
   return (
-    <div className="container mx-auto px-8 pt-8 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <div className="pr-24">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="lg:pr-24">
         <div className="text-xs text-gray-500 mb-12 mt-2">
           <span className="mr-2">Account</span> /{" "}
           <span className="mr-2 ml-2">My Account</span> /{" "}
@@ -145,8 +144,8 @@ const Checkout = () => {
         </form>
       </div>
 
-      <div className="space-y-4 mt-28 pl-16 text-lg">
-        <div className="space-y-10 mr-24">
+      <div className="space-y-4 mt-8 lg:mt-28 lg:pl-16 text-lg">
+        <div className="space-y-10 lg:mr-24">
           {cartItems.map((item) => (
             <div key={item.id} className="flex justify-between items-center">
               <div className="flex items-center space-x-4">
@@ -155,13 +154,13 @@ const Checkout = () => {
                   alt={item.name}
                   className="h-14 w-14 object-contain"
                 />
-                <span className="w-72">{item.name}</span>
+                <span className="w-48 lg:w-72">{item.name}</span>
               </div>
               <span>${item.totalPrice}</span>
             </div>
           ))}
         </div>
-        <div className="pt-6 space-y-2 mr-24">
+        <div className="pt-6 space-y-2 lg:mr-24">
           <div className="border-b-[1.5px] border-gray-400 pb-4 flex justify-between">
             <span>Subtotal:</span>
             <span>${totalAmount}</span>
@@ -190,7 +189,7 @@ const Checkout = () => {
                 Bank
               </label>
             </div>
-            <img src="/src/assets/banks.png" className="h-7 mr-24" />
+            <img src="/src/assets/banks.png" className="h-7 lg:mr-24" />
           </div>
           <div className="flex items-center">
             <input
@@ -206,7 +205,7 @@ const Checkout = () => {
             </label>
           </div>
         </div>
-        <div className="flex space-x-4 py-4">
+        <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 py-4">
           <input
             type="text"
             placeholder="Coupon Code"

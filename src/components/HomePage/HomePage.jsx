@@ -9,7 +9,7 @@ import TopRatedSection from "./Sections/TopRatedSection";
 
 const HomePage = () => {
   return (
-    <div className="px-28">
+    <div className="px-8 sm:px-8 md:px-16 lg:px-28">
       <SliderSection />
       <FlashSalesSection />
       <CategorySection />

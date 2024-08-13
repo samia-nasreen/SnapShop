@@ -24,15 +24,18 @@ const SignUpForm = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="flex">
-      <div className="w-2/3 p-16">
+    <div className="flex flex-col lg:flex-row">
+      {/* Image section, hidden on small screens */}
+      <div className="hidden lg:block lg:w-2/3 p-16">
         <img
           src="/src/assets/signup.png"
           alt="Sign up"
           className="h-screen w-full object-cover rounded-r"
         />
       </div>
-      <div className="w-1/3 flex flex-col mt-16 mb-28 p-10">
+
+      {/* Form section */}
+      <div className="w-full lg:w-1/3 flex flex-col justify-center lg:mt-16 lg:mb-28 p-10">
         <h2 className="text-4xl font-medium mb-6">Create an account</h2>
         <p className="mb-8">Enter your details below</p>
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-sm">
@@ -97,7 +100,10 @@ const SignUpForm = () => {
           </button>
           <p className="mt-8 flex items-center justify-center">
             Already have account?{" "}
-            <a href="/login" className="ml-2 p-1 font-medium border-b-[1.25px] border-gray-500">
+            <a
+              href="/login"
+              className="ml-2 p-1 font-medium border-b-[1.25px] border-gray-500"
+            >
               Log in
             </a>
           </p>
@@ -105,6 +111,6 @@ const SignUpForm = () => {
       </div>
     </div>
   );
-}
+};
 
 export default SignUpForm;

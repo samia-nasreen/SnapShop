@@ -1,16 +1,17 @@
 const OurStory = () => {
   return (
-    <div className="max-w-7xl -ml-3 -mt-2 py-12 md:px-8">
-      <div className="text-xs text-gray-500 mb-8">
+    <div className="max-w-7xl mx-auto px-4 md:px-5 py-12">
+      <div className="text-xs text-gray-500 mb-8 -mt-2">
         <span className="mr-2">Home</span> /{" "}
         <span className="ml-2 text-black">About</span>
       </div>
 
       <div className="flex flex-col md:flex-row items-center">
-        {/* Text content */}
-        <div className="w-full md:w-1/2 -mt-8">
-          <h2 className="text-6xl font-medium mb-10">Our Story</h2>
-          <p className="text-gray-700 font-medium mb-8 max-w-[510px]">
+        <div className="w-full md:w-1/2 mt-4 md:-mt-8">
+          <h2 className="text-4xl md:text-6xl font-medium mb-6 md:mb-10">
+            Our Story
+          </h2>
+          <p className="text-gray-700 font-medium mb-6 md:mb-8 max-w-[510px]">
             Launched in 2015, SnapShop is South Asia&apos;s premier online
             shopping marketplace with an active presence in Bangladesh.
             Supported by a wide range of tailored marketing, data, and service
@@ -23,13 +24,11 @@ const OurStory = () => {
             from consumer.
           </p>
         </div>
-        {/* Image */}
-        <div className="w-[750px] md:w-[750px] flex justify-end -mr-36 mt-8 md:mt-0">
+        <div className="w-full md:w-[750px] flex justify-center md:justify-end mt-8 md:mt-0 md:-mr-36">
           <img
             src="/src/assets/story.png"
             alt="Our Story"
-            className="w-full h-full object-cover rounded-l"
-            style={{ maxHeight: "none" }} // Remove maxHeight constraint
+            className="w-full h-auto object-cover rounded-l"
           />
         </div>
       </div>

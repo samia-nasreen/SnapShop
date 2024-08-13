@@ -43,7 +43,7 @@ const AccountMenu = () => {
 
   return (
     <div className="relative" ref={menuRef}>
-      <button onClick={toggleDropdown} className="text-gray-800 text-3xl">
+      <button onClick={toggleDropdown} className="text-gray-800 text-2xl md:text-3xl">
         <AiOutlineUser />
       </button>
       {isOpen && (

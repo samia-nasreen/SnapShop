@@ -1,6 +1,6 @@
 const CategoryPanel = () => {
   return (
-    <div className="w-1/4 p-4">
+    <div className="w-full p-4">
       <ul className="space-y-4">
         <li className="cursor-pointer hover:text-gray-700">Woman’s Fashion</li>
         <li className="cursor-pointer hover:text-gray-700">Men’s Fashion</li>

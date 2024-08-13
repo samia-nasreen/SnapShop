@@ -14,19 +14,19 @@ const CategorySection = () => {
         <div className="bg-red-500 w-4 h-8 mr-4 rounded"></div>
         <span className="text-red-500 font-semibold">Categories</span>
       </div>
-      <h2 className="text-4xl font-medium mb-12">Browse By Category</h2>
-      <div className="flex justify-between">
+      <h2 className="text-2xl md:text-4xl font-medium mb-12">Browse By Category</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {categories.map((category, index) => (
           <div
             key={index}
-            className="flex flex-col items-center w-40 p-8 border rounded-md hover:bg-red-100 transition"
+            className="flex flex-col items-center p-4 md:p-8 border rounded-md hover:bg-red-100 transition"
           >
             <img
               src={`/src/assets/${category.icon}`}
               alt={category.label}
-              className="w-12 h-12 mb-4"
+              className="w-10 h-10 md:w-12 md:h-12 mb-2 md:mb-4"
             />
-            <span className="text-md">{category.label}</span>
+            <span className="text-sm md:text-md">{category.label}</span>
           </div>
         ))}
       </div>
@@ -36,3 +36,4 @@ const CategorySection = () => {
 };
 
 export default CategorySection;
+

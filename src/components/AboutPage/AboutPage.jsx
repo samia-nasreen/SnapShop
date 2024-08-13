@@ -5,7 +5,7 @@ import ServicesSection from "../HomePage/Sections/ServicesSection";
 
 const AboutPage = () => {
   return (
-    <div className="px-28">
+    <div className="px-8 sm:px-8 md:px-16 lg:px-28">
       <OurStory />
       <Stats />
       <Team />
