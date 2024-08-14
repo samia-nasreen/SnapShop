@@ -28,7 +28,6 @@ const Wishlist = () => {
           </button>
         )}
       </div>
-
       <div className="flex flex-wrap -m-4">
         {wishlist.map((product) => (
           <div className="p-4 w-full sm:w-1/2 lg:w-1/4" key={product.id}>

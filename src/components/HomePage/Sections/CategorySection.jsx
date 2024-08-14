@@ -1,11 +1,4 @@
-const categories = [
-  { icon: "smartphone.png", label: "Phones" },
-  { icon: "computer.png", label: "Computers" },
-  { icon: "smartwatch.png", label: "SmartWatch" },
-  { icon: "camera.png", label: "Camera" },
-  { icon: "headphones.png", label: "HeadPhones" },
-  { icon: "gaming.png", label: "Gaming" },
-];
+import { categories } from "../../../data/categories";
 
 const CategorySection = () => {
   return (
@@ -14,7 +7,9 @@ const CategorySection = () => {
         <div className="bg-red-500 w-4 h-8 mr-4 rounded"></div>
         <span className="text-red-500 font-semibold">Categories</span>
       </div>
-      <h2 className="text-2xl md:text-4xl font-medium mb-12">Browse By Category</h2>
+      <h2 className="text-2xl md:text-4xl font-medium mb-12">
+        Browse By Category
+      </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {categories.map((category, index) => (
           <div
@@ -36,4 +31,3 @@ const CategorySection = () => {
 };
 
 export default CategorySection;
-

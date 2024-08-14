@@ -5,7 +5,6 @@ const OurStory = () => {
         <span className="mr-2">Home</span> /{" "}
         <span className="ml-2 text-black">About</span>
       </div>
-
       <div className="flex flex-col md:flex-row items-center">
         <div className="w-full md:w-1/2 mt-4 md:-mt-8">
           <h2 className="text-4xl md:text-6xl font-medium mb-6 md:mb-10">

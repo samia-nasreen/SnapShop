@@ -1,12 +1,18 @@
 const BuyNowSection = () => {
-  const image = "/src/assets/jbl.jpeg"; // Update with your image path
+  const image = "/src/assets/jbl.jpeg";
 
   return (
     <div className="w-full flex flex-col md:flex-row h-auto md:h-[520px] mt-16 relative bg-black border-[16px] border-white">
       <div className="flex flex-col justify-center items-start text-white w-full md:w-1/3 pl-12 md:pl-16 z-10 py-8 md:py-0">
-        <h2 className="text-xs md:text-sm font-medium text-green-400">Categories</h2>
-        <p className="mt-4 md:mt-8 text-2xl md:text-4xl font-medium">Enhance Your</p>
-        <p className="mt-2 mb-4 text-2xl md:text-4xl font-medium">Music Experience</p>
+        <h2 className="text-xs md:text-sm font-medium text-green-400">
+          Categories
+        </h2>
+        <p className="mt-4 md:mt-8 text-2xl md:text-4xl font-medium">
+          Enhance Your
+        </p>
+        <p className="mt-2 mb-4 text-2xl md:text-4xl font-medium">
+          Music Experience
+        </p>
         <div className="flex items-center space-x-2 md:space-x-4 mt-4 mb-4">
           <div className="flex flex-col items-center bg-white text-black p-2 md:p-4 rounded-full w-12 md:w-16 h-12 md:h-16">
             <div className="text-xs md:text-sm font-semibold">23</div>

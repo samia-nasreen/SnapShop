@@ -1,6 +1,6 @@
 import OurStory from "./Sections/OurStory";
 import Stats from "./Sections/Stats";
-import Team from "./Sections/Team";
+import Team from "./Sections/Team/Team";
 import ServicesSection from "../HomePage/Sections/ServicesSection";
 
 const AboutPage = () => {
