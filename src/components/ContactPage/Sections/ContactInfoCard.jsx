@@ -7,7 +7,7 @@ const ContactInfoCard = () => {
       <div className="flex items-center mb-6">
         <div className="flex-shrink-0 bg-red-500 p-3 rounded-full">
           <img
-            src="/src/assets/call_icon.svg"
+            src="/assets/call_icon.svg"
             alt="Call Icon"
             className="w-6 h-6 text-white"
           />
@@ -20,7 +20,7 @@ const ContactInfoCard = () => {
       <div className="flex items-center mt-8 mb-6">
         <div className="flex-shrink-0 bg-red-500 p-3 rounded-full">
           <img
-            src="/src/assets/mail_icon.svg"
+            src="/assets/mail_icon.svg"
             alt="Mail Icon"
             className="w-6 h-6 text-white"
           />

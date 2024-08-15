@@ -1,7 +1,7 @@
-import DeliveryIcon from "../../../../assets/icon-delivery.png";
-import CustomerServiceIcon from "../../../../assets/icon-headphone.png";
-import MoneyBackIcon from "../../../../assets/icon-secure.png";
-import UpArrowIcon from "../../../../assets/arrow_up_icon.png";
+import DeliveryIcon from "/assets/icon-delivery.png";
+import CustomerServiceIcon from "/assets/icon-headphone.png";
+import MoneyBackIcon from "/assets/icon-secure.png";
+import UpArrowIcon from "/assets/arrow_up_icon.png";
 import ServiceItem from "./ServiceItem";
 
 const ServicesSection = () => {

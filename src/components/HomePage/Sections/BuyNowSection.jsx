@@ -1,6 +1,4 @@
 const BuyNowSection = () => {
-  const image = "/src/assets/jbl.jpeg";
-
   return (
     <div className="w-full flex flex-col md:flex-row h-auto md:h-[520px] mt-16 relative bg-black border-[16px] border-white">
       <div className="flex flex-col justify-center items-start text-white w-full md:w-1/3 pl-12 md:pl-16 z-10 py-8 md:py-0">
@@ -40,7 +38,11 @@ const BuyNowSection = () => {
       </div>
       <div className="w-full md:w-2/3 h-64 md:h-full relative">
         <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black via-transparent to-transparent z-10"></div>
-        <img src={image} alt="Banner" className="w-full h-full object-cover" />
+        <img
+          src="/assets/jbl.jpeg"
+          alt="Banner"
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
   );

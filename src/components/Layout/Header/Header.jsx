@@ -1,4 +1,4 @@
-import downarrow from "../../../assets/downarrow.svg";
+import downarrow from "/assets/downarrow.svg";
 
 const Header = () => {
   return (

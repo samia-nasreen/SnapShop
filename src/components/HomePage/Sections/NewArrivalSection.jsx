@@ -9,7 +9,7 @@ const NewArrivalSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
         <div className="relative group md:col-span-2 md:row-span-2">
           <img
-            src="src/assets/ps5pro.jpg"
+            src="/assets/ps5pro.jpg"
             alt="PlayStation 5 Pro"
             className="w-full h-full object-cover rounded"
           />
@@ -25,7 +25,7 @@ const NewArrivalSection = () => {
         </div>
         <div className="relative group md:col-span-2">
           <img
-            src="src/assets/woman.jpg"
+            src="/assets/woman.jpg"
             alt="Women's Collections"
             className="w-full h-full object-cover rounded"
           />
@@ -41,7 +41,7 @@ const NewArrivalSection = () => {
         </div>
         <div className="relative group">
           <img
-            src="src/assets/headphones.jpg"
+            src="/assets/headphones.jpg"
             alt="Headphones"
             className="w-full h-full object-cover rounded"
           />
@@ -55,7 +55,7 @@ const NewArrivalSection = () => {
         </div>
         <div className="relative group">
           <img
-            src="src/assets/gucci.jpg"
+            src="/assets/gucci.jpg"
             alt="Perfume"
             className="w-full h-full object-cover rounded"
           />

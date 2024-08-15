@@ -1,5 +1,5 @@
-import deliveryIcon from "../../../../assets/delivery_icon.svg";
-import returnIcon from "../../../../assets/return_icon.svg";
+import deliveryIcon from "/assets/delivery_icon.svg";
+import returnIcon from "/assets/return_icon.svg";
 import { Link } from "react-router-dom";
 
 const DeliveryDetails = () => {

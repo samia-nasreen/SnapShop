@@ -25,7 +25,7 @@ const OurStory = () => {
         </div>
         <div className="w-full md:w-[750px] flex justify-center md:justify-end mt-8 md:mt-0 md:-mr-36">
           <img
-            src="/src/assets/story.png"
+            src="/assets/story.png"
             alt="Our Story"
             className="w-full h-auto object-cover rounded-l"
           />

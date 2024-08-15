@@ -9,7 +9,7 @@ const SignUpPage = () => {
     <div className="flex flex-col lg:flex-row">
       <div className="hidden lg:block lg:w-2/3 p-16">
         <img
-          src="/src/assets/signup.png"
+          src="/assets/signup.png"
           alt="Sign up"
           className="h-screen w-full object-cover rounded-r"
         />

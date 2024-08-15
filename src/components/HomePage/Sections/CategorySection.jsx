@@ -17,7 +17,7 @@ const CategorySection = () => {
             className="flex flex-col items-center p-4 md:p-8 border rounded-md hover:bg-red-100 transition"
           >
             <img
-              src={`/src/assets/${category.icon}`}
+              src={`/assets/${category.icon}`}
               alt={category.label}
               className="w-10 h-10 md:w-12 md:h-12 mb-2 md:mb-4"
             />

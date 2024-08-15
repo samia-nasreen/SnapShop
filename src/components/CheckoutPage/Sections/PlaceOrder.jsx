@@ -16,7 +16,7 @@ const PlaceOrder = ({ register, handleSubmit, onSubmit }) => {
               Bank
             </label>
           </div>
-          <img src="/src/assets/banks.png" className="h-7 lg:mr-24" />
+          <img src="/assets/banks.png" className="h-7 lg:mr-24" />
         </div>
         <div className="flex items-center">
           <input

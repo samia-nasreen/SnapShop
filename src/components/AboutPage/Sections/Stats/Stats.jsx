@@ -13,7 +13,7 @@ const Stats = () => {
               <div className="absolute w-[88px] h-[88px] bg-zinc-300 rounded-full transition group-hover:bg-red-200"></div>
               <div className="relative w-16 h-16 bg-black rounded-full flex justify-center items-center transition group-hover:bg-white">
                 <img
-                  src={`/src/assets/${stat.icon}`}
+                  src={`/assets/${stat.icon}`}
                   alt={stat.label}
                   className="w-10 h-10 svg-icon transition group-hover:filter-invert group-hover:brightness-0"
                 />

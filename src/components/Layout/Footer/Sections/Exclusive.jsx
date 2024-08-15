@@ -1,4 +1,4 @@
-import sendIcon from "../../../../assets/send_icon.png";
+import sendIcon from "/assets/send_icon.png";
 
 const Exclusive = () => {
   return (

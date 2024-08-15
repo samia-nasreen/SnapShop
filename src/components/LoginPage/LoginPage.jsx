@@ -43,7 +43,7 @@ const LoginPage = () => {
     <div className="flex flex-col lg:flex-row">
       <div className="hidden lg:block lg:w-2/3 p-16 mb-20">
         <img
-          src="/src/assets/signup.png"
+          src="/assets/signup.png"
           alt="Log in"
           className="h-screen w-full object-cover rounded-r"
         />
