@@ -1,4 +1,5 @@
-import ProductCard from "../../UI/ProductCard";
+import { NavLink } from "react-router-dom";
+import ProductCard from "../../UI/ProductCard/ProductCard";
 import { useState, useEffect, useRef } from "react";
 
 const TopRatedSection = () => {
@@ -43,10 +44,15 @@ const TopRatedSection = () => {
         <span className="text-red-500 font-semibold">This Month</span>
       </div>
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl md:text-4xl font-medium md:mr-16">Top Rated Products</h2>
-        <button className="bg-red-500 text-sm text-white px-10 py-4 rounded">
+        <h2 className="text-xl md:text-4xl font-medium md:mr-16">
+          Top Rated Products
+        </h2>
+        <NavLink
+          to="/products"
+          className="bg-red-500 text-sm text-white px-10 py-4 rounded"
+        >
           View All
-        </button>
+        </NavLink>
       </div>
 
       <div className="relative">

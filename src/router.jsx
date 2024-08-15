@@ -10,9 +10,10 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import WishlistPage from "./components/WishlistPage/WishlistPage";
 import ProductDetailPage from "./components/ProductDetailPage/ProductDetailPage";
-import Cart from "./components/Cart/Cart";
-import Checkout from "./components/Checkout/Checkout";
+import Cart from "./components/CartPage/CartPage";
+import Checkout from "./components/CheckoutPage/CheckoutPage";
 import ProtectedRoute from "./components/Helpers/ProtectedRoute";
+import AllProductsPage from "./components/AllProductsPage/AllProductsPage";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ export const router = createBrowserRouter([
       { path: "/login", element: <LoginPage /> },
       { path: "/profile", element: <ProfilePage /> },
       { path: "/wishlist", element: <WishlistPage /> },
+      { path: "/products", element: <AllProductsPage /> },
       { path: "/products/:productId", element: <ProductDetailPage /> },
       { path: "/checkout", element: <ProtectedRoute element={<Checkout />} /> },
       { path: "/cart", element: <Cart /> },

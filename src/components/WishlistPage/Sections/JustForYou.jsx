@@ -1,4 +1,5 @@
-import ProductCard from "../../UI/ProductCard";
+import { NavLink } from "react-router-dom";
+import ProductCard from "../../UI/ProductCard/ProductCard";
 import { useState, useEffect } from "react";
 
 const JustForYou = () => {
@@ -36,9 +37,12 @@ const JustForYou = () => {
           <div className="bg-red-500 w-3 h-6 mr-3 rounded"></div>
           <span className="text-base sm:text-xl">Just For You</span>
         </div>
-        <button className="px-4 py-2 sm:px-6 sm:py-3 border border-gray-900 rounded-md text-sm sm:text-base">
+        <NavLink
+          to="/products"
+          className="px-4 py-2 sm:px-6 sm:py-3 border border-gray-900 rounded-md text-sm sm:text-base"
+        >
           See All
-        </button>
+        </NavLink>
       </div>
       <div className="flex flex-wrap">
         {products.map((product) => (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ProductDetail from "./Sections/ProductDetail";
-import RelatedItems from "./Sections/RelatedItems";
+import ProductDetail from "./Sections/ProductDetail/ProductDetail";
+import RelatedItems from "./Sections/RelatedItems/RelatedItems";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
@@ -57,11 +57,11 @@ const ProductDetailPage = () => {
   }, [productId]);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <div className="flex justify-center p-8">Loading...</div>;
   }
 
   return (
-    <div className="px-28">
+    <div className="px-8 md:px-28">
       <div className="text-xs text-gray-500 mt-12 ml-4">
         <span className="mr-2">Account</span> /
         <span className="mx-2">{product.category}</span> /

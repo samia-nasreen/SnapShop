@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { wishlistActions } from "../../../store/wishlist";
 import { cartActions } from "../../../store/cart";
-import ProductCard from "../../UI/ProductCard";
+import ProductCard from "../../UI/ProductCard/ProductCard";
 
 const Wishlist = () => {
   const dispatch = useDispatch();

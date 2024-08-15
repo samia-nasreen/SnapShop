@@ -9,7 +9,7 @@ import NavItem from "./Sections/NavItem";
 import IconWithBadge from "./Sections/IconWithBadge";
 import SearchBar from "./Sections/SearchBar";
 import SideBar from "./Sections/SideBar";
-import AccountMenu from "../../UI/AccountMenu";
+import AccountMenu from "../../UI/AccountMenu/AccountMenu";
 
 const NavBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);

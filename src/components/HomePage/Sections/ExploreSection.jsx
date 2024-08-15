@@ -1,5 +1,6 @@
-import ProductCard from "../../UI/ProductCard";
+import ProductCard from "../../UI/ProductCard/ProductCard";
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 const ExploreSection = () => {
   const [products, setProducts] = useState([]);
@@ -48,9 +49,12 @@ const ExploreSection = () => {
         ))}
       </div>
       <div className="mt-12 text-center">
-        <button className="bg-red-500 text-sm text-white px-10 py-4 rounded">
+        <NavLink
+          to="/products"
+          className="bg-red-500 text-sm text-white px-10 py-4 rounded"
+        >
           View All Products
-        </button>
+        </NavLink>
       </div>
     </div>
   );
