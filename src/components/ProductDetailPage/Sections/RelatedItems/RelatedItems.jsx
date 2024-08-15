@@ -12,7 +12,7 @@ const RelatedItems = ({ relatedProducts }) => {
       </div>
       <div className="flex flex-wrap">
         {relatedProducts.map((product) => (
-          <div className="p-4 w-1/2 lg:w-1/4" key={product.id}>
+          <div className="p-4 w-full lg:w-1/4" key={product.id}>
             <ProductCard product={product} />
           </div>
         ))}

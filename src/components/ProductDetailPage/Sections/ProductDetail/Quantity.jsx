@@ -27,16 +27,16 @@ const Quantity = ({ product }) => {
     <>
       <div className="flex items-center border-[1px] border-gray-500 rounded">
         <button
-          className="px-3 py-1 md:py-2 text-2xl border-r-[1px] border-gray-500 focus:bg-red-500 focus:text-white"
+          className="px-2 md:px-3 py-1 md:py-2 text-2xl border-r-[1px] border-gray-500 focus:bg-red-500 focus:text-white"
           onClick={() => handleQuantityChange(-1)}
         >
           -
         </button>
-        <span className="w-12 md:w-14 text-center md:text-xl font-semibold">
+        <span className="w-10 md:w-14 text-center md:text-xl font-semibold">
           {quantity}
         </span>
         <button
-          className="px-3 py-1 md:py-2 text-2xl border-l-[1px] border-gray-500 focus:bg-red-500 focus:text-white"
+          className="px-2 md:px-3 py-1 md:py-2 text-2xl border-l-[1px] border-gray-500 focus:bg-red-500 focus:text-white"
           onClick={() => handleQuantityChange(1)}
         >
           +
@@ -44,7 +44,7 @@ const Quantity = ({ product }) => {
       </div>
       <button
         onClick={handleAddToCart}
-        className="bg-red-500 text-white px-6 h-10 md:h-12 rounded"
+        className="bg-red-500 text-white px-3 md:px-6 h-10 md:h-12 rounded"
       >
         Add To Cart
       </button>
