@@ -1,12 +1,10 @@
 import { categories } from "../../../data/categories";
+import RedSubHeading from "../../UI/RedSubHeading";
 
 const CategorySection = () => {
   return (
     <div className="category-section mt-16 mb-12 px-4 bg-white relative">
-      <div className="flex items-center mb-6">
-        <div className="bg-red-500 w-4 h-8 mr-4 rounded"></div>
-        <span className="text-red-500 font-semibold">Categories</span>
-      </div>
+      <RedSubHeading subHeading="Categories" />
       <h2 className="text-2xl md:text-4xl font-medium mb-12">
         Browse By Category
       </h2>

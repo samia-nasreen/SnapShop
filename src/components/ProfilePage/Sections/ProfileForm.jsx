@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import TextInput from "./TextInput";
 import PasswordChangeSection from "./PasswordChange";
+import RedButton from "../../UI/RedButton";
 
 const ProfileForm = ({ userData, onSubmit, capitalizeFirstLetter }) => {
   const {
@@ -48,12 +49,11 @@ const ProfileForm = ({ userData, onSubmit, capitalizeFirstLetter }) => {
           <button type="button" className="px-4 py-2">
             Cancel
           </button>
-          <button
-            type="submit"
-            className="px-10 py-4 bg-red-500 text-white rounded-md"
-          >
-            Save Changes
-          </button>
+          <RedButton
+            text="Save Changes"
+            fontSize="base"
+            onClick={handleSubmit(onSubmit)}
+          />
         </div>
       </form>
     </div>

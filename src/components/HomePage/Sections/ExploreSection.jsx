@@ -1,9 +1,12 @@
 import ProductCard from "../../UI/ProductCard/ProductCard";
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import RedSubHeading from "../../UI/RedSubHeading";
+import RedButton from "../../UI/RedButton";
 
 const ExploreSection = () => {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=20")
@@ -32,12 +35,13 @@ const ExploreSection = () => {
       });
   }, []);
 
+  const handleViewAllButton = () => {
+    navigate("/products");
+  };
+
   return (
     <div className="explore-section mt-16 mb-12 px-4 bg-white relative">
-      <div className="flex items-center mr-2 mb-6">
-        <div className="bg-red-500 w-4 h-8 mr-4 rounded"></div>
-        <span className="text-red-500 font-semibold">Our Products</span>
-      </div>
+      <RedSubHeading subHeading="Our Products" />
       <div className="flex items-center mb-6">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mr-16 mb-4">
           Explore Our Products
@@ -49,12 +53,7 @@ const ExploreSection = () => {
         ))}
       </div>
       <div className="mt-12 text-center">
-        <NavLink
-          to="/products"
-          className="bg-red-500 text-sm text-white px-10 py-4 rounded"
-        >
-          View All Products
-        </NavLink>
+        <RedButton text="View All Products" onClick={handleViewAllButton} />
       </div>
     </div>
   );

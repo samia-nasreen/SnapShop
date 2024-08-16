@@ -3,9 +3,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpSchema } from "../../../schemas/authSchemas";
 import TextInput from "./TextInput";
-import CreateAccountButton from "./CreateAccountButton";
 import GoogleSignUpButton from "./GoogleSignUpButton";
 import LoginLink from "./LoginLink";
+import RedButton from "../../UI/RedButton";
 
 const SignUpForm = ({ onSubmit }) => {
   const {
@@ -60,7 +60,12 @@ const SignUpForm = ({ onSubmit }) => {
         type="text"
         placeholder="Phone"
       />
-      <CreateAccountButton />
+      <RedButton
+        text="CreateAccount"
+        fontSize="base"
+        onClick={handleSubmit(onSubmit)}
+        className="min-w-full"
+      />
       <GoogleSignUpButton />
       <LoginLink />
     </form>

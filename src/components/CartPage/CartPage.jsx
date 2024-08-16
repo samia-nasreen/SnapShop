@@ -21,7 +21,7 @@ const Cart = () => {
 
   const formatCurrency = (amount) => {
     if (amount > 0) return amount.toFixed(2);
-    return 0;
+    return "0.00";
   };
 
   const isCartEmpty = cartItems.length === 0;

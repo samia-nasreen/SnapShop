@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { wishlistActions } from "../../../store/wishlist";
 import { cartActions } from "../../../store/cart";
 import ProductCard from "../../UI/ProductCard/ProductCard";
+import TransparentButton from "../../UI/TransparentButton";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
@@ -20,12 +21,10 @@ const Wishlist = () => {
       <div className="flex flex-row justify-between items-center mb-5">
         <h2 className="text-lg sm:text-2xl">Wishlist ({wishlist.length})</h2>
         {wishlist.length > 0 && (
-          <button
+          <TransparentButton
+            text="Move All to Cart"
             onClick={moveAllToCartHandler}
-            className="mt-3 sm:mt-0 px-4 py-2 sm:px-6 sm:py-3 border border-gray-900 rounded-md text-sm sm:text-base"
-          >
-            Move All To Cart
-          </button>
+          />
         )}
       </div>
       <div className="flex flex-wrap -m-4">

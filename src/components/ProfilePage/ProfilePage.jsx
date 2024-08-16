@@ -5,7 +5,6 @@ import ProfileForm from "./Sections/ProfileForm";
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const userId = useSelector((state) => state.auth.userId);
 
   useEffect(() => {
@@ -23,14 +22,6 @@ const ProfilePage = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-  };
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
-  const closeSidebar = () => {
-    setIsSidebarOpen(false);
   };
 
   const capitalizeFirstLetter = (string) => {
@@ -60,11 +51,7 @@ const ProfilePage = () => {
           </div>
         </div>
         <div className="w-full flex">
-          <SideBar
-            isSidebarOpen={isSidebarOpen}
-            toggleSidebar={toggleSidebar}
-            closeSidebar={closeSidebar}
-          />
+          <SideBar />
           <div className="w-full md:w-3/4 pl-5">
             <ProfileForm
               userData={userData}

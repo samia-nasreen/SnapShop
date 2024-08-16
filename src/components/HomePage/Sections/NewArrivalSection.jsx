@@ -1,10 +1,9 @@
+import RedSubHeading from "../../UI/RedSubHeading";
+
 const NewArrivalSection = () => {
   return (
     <div className="py-8 mt-16 mb-12 px-4 bg-white relative">
-      <div className="flex items-center mb-6">
-        <div className="bg-red-500 w-4 h-8 mr-4 rounded"></div>
-        <span className="text-red-500 font-semibold">Featured</span>
-      </div>
+      <RedSubHeading subHeading="Featured" />
       <h2 className="text-2xl sm:text-3xl md:text-3xl font-medium mb-12">New Arrival</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
         <div className="relative group md:col-span-2 md:row-span-2">

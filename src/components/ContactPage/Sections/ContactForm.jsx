@@ -1,3 +1,5 @@
+import RedButton from "../../UI/RedButton";
+
 const ContactForm = () => {
   return (
     <div
@@ -28,12 +30,7 @@ const ContactForm = () => {
           className="w-full p-3 border border-white bg-stone-100 rounded"
         />
         <div className="pt-4 pb-2 text-right">
-          <button
-            type="submit"
-            className="bg-red-500 text-white py-3 px-8 rounded hover:bg-red-600 transition duration-200"
-          >
-            Send Message
-          </button>
+          <RedButton text="Send Message" onClick={null} fontSize="base" />
         </div>
       </form>
     </div>

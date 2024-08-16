@@ -1,7 +1,20 @@
-/* eslint-disable react/prop-types */
-import { NavLink } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import RedButton from "../../UI/RedButton";
 
-const CartTotal = ({ totalAmount, isCartEmpty, formatCurrency }) => {
+interface CartTotalProps {
+  totalAmount: number;
+  isCartEmpty: boolean;
+  formatCurrency: (amount: number) => string;
+}
+
+const CartTotal: React.FC<CartTotalProps> = ({ totalAmount, isCartEmpty, formatCurrency }) => {
+  const navigate = useNavigate();
+
+  const handleProceedToCheckout = () => {
+    navigate("/checkout");
+  };
+
   return (
     <div className="w-full md:w-1/2 flex justify-end">
       <div className="border-[1.5px] border-gray-700 px-4 sm:px-6 py-6 sm:py-8 rounded shadow-md w-full sm:w-5/6">
@@ -20,17 +33,13 @@ const CartTotal = ({ totalAmount, isCartEmpty, formatCurrency }) => {
           <span>Total:</span>
           <span>${formatCurrency(totalAmount)}</span>
         </div>
-        <div className="flex justify-center">
-          <NavLink
-            to="/checkout"
-            className={`px-6 sm:px-8 py-3 mt-6 rounded ${
-              isCartEmpty
-                ? "bg-gray-500 text-white opacity-50 cursor-not-allowed pointer-events-none"
-                : "bg-red-500 text-white hover:bg-red-600"
-            }`}
-          >
-            Proceed to Checkout
-          </NavLink>
+        <div className="flex justify-center mt-8">
+          <RedButton
+            text="Proceed to Checkout"
+            onClick={handleProceedToCheckout}
+            fontSize="base"
+            isDisabled={isCartEmpty}
+          />
         </div>
       </div>
     </div>

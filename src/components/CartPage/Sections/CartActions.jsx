@@ -1,28 +1,32 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { cartActions } from "../../../store/cart";
 import { useDispatch } from "react-redux";
+import TransparentButton from "../../UI/TransparentButton";
 
 const CartActions = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClearCartButton = () => {
     dispatch(cartActions.clearCart());
   };
 
+  const handleReturnToShopButton = () => {
+    navigate("/");
+  };
+
   return (
     <div className="flex flex-col sm:flex-row justify-between mt-8">
-      <NavLink
-        to="/"
-        className="bg-white border border-gray-600 text-center text-gray-900 font-medium px-6 sm:px-8 py-3 rounded mb-4 sm:mb-0"
-      >
-        Return To Shop
-      </NavLink>
-      <button
+      <TransparentButton
+        text="Return To Shop"
+        fontWeight="medium"
+        onClick={handleReturnToShopButton}
+      />
+      <TransparentButton
+        text="Clear Cart"
+        fontWeight="medium"
         onClick={handleClearCartButton}
-        className="bg-white border border-gray-600 text-gray-900 font-medium px-6 sm:px-8 py-3 rounded"
-      >
-        Clear Cart
-      </button>
+      />
     </div>
   );
 };

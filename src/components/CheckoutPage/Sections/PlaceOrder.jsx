@@ -1,3 +1,5 @@
+import RedButton from "../../UI/RedButton";
+
 /* eslint-disable react/prop-types */
 const PlaceOrder = ({ register, handleSubmit, onSubmit }) => {
   return (
@@ -39,16 +41,13 @@ const PlaceOrder = ({ register, handleSubmit, onSubmit }) => {
           {...register("couponCode")}
           className="flex-1 p-4 border-[1.5px] rounded"
         />
-        <button className="bg-red-500 text-white px-10 py-4 rounded">
-          Apply Coupon
-        </button>
+        <RedButton text="Apply Coupon" fontSize="base" onClick={null} />
       </div>
-      <button
+      <RedButton
+        text="Place Order"
+        fontSize="base"
         onClick={handleSubmit(onSubmit)}
-        className="bg-red-500 text-white px-10 py-4 rounded"
-      >
-        Place Order
-      </button>
+      />
     </>
   );
 };

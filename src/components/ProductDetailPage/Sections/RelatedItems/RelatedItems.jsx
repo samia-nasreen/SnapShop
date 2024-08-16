@@ -1,14 +1,12 @@
 /* eslint-disable react/prop-types */
 import ProductCard from "../../../UI/ProductCard/ProductCard";
+import RedSubHeading from "../../../UI/RedSubHeading";
 
 const RelatedItems = ({ relatedProducts }) => {
   return (
     <div className="container mx-auto mt-16 mb-24 p-5">
       <div className="flex justify-between items-center mb-5">
-        <div className="flex items-center mr-2 mb-6">
-          <div className="bg-red-500 w-4 h-8 mr-4 rounded"></div>
-          <span className="text-red-500 font-semibold">Related Items</span>
-        </div>
+        <RedSubHeading subHeading="Related Items" />
       </div>
       <div className="flex flex-wrap">
         {relatedProducts.map((product) => (

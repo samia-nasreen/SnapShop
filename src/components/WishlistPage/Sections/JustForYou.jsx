@@ -1,8 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ProductCard from "../../UI/ProductCard/ProductCard";
 import { useState, useEffect } from "react";
+import RedSubHeading from "../../UI/RedSubHeading";
+import TransparentButton from "../../UI/TransparentButton";
 
 const JustForYou = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -30,19 +33,15 @@ const JustForYou = () => {
       });
   }, []);
 
+  const handleSeeAllButton = () => {
+    navigate("/products");
+  };
+
   return (
     <div className="container mx-auto mt-16 mb-24 p-5">
       <div className="flex flex-row justify-between items-center mb-5">
-        <div className="flex items-center mb-6">
-          <div className="bg-red-500 w-3 h-6 mr-3 rounded"></div>
-          <span className="text-base sm:text-xl">Just For You</span>
-        </div>
-        <NavLink
-          to="/products"
-          className="px-4 py-2 sm:px-6 sm:py-3 border border-gray-900 rounded-md text-sm sm:text-base"
-        >
-          See All
-        </NavLink>
+        <RedSubHeading subHeading="Just For You" />
+        <TransparentButton text="See All" onClick={handleSeeAllButton} />
       </div>
       <div className="flex flex-wrap">
         {products.map((product) => (

@@ -1,10 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ProductCard from "../../UI/ProductCard/ProductCard";
 import { useState, useEffect, useRef } from "react";
+import RedSubHeading from "../../UI/RedSubHeading";
+import RedButton from "../../UI/RedButton";
 
 const TopRatedSection = () => {
   const [products, setProducts] = useState([]);
   const scrollContainerRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
@@ -37,22 +40,18 @@ const TopRatedSection = () => {
       });
   }, []);
 
+  const handleViewAllButton = () => {
+    navigate("/products");
+  };
+
   return (
     <div className="flash-sales mt-16 mb-12 px-4 bg-white relative">
-      <div className="flex items-center mr-2 mb-6">
-        <div className="bg-red-500 w-4 h-8 mr-4 rounded"></div>
-        <span className="text-red-500 font-semibold">This Month</span>
-      </div>
+      <RedSubHeading subHeading="This Month" />
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl md:text-4xl font-medium md:mr-16">
           Top Rated Products
         </h2>
-        <NavLink
-          to="/products"
-          className="bg-red-500 text-sm text-white px-10 py-4 rounded"
-        >
-          View All
-        </NavLink>
+        <RedButton text="View All" onClick={handleViewAllButton} />
       </div>
 
       <div className="relative">

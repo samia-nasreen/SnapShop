@@ -3,11 +3,14 @@ import { useState, useEffect, useRef } from "react";
 import TimeRemaining from "./TimeRemaining";
 import ScrollLeftButton from "../../../UI/ScrollButtons/ScrollLeftButton";
 import ScrollRightButton from "../../../UI/ScrollButtons/ScrollRightButton";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import RedSubHeading from "../../../UI/RedSubHeading";
+import RedButton from "../../../UI/RedButton";
 
 const FlashSalesSection = () => {
   const [products, setProducts] = useState([]);
   const scrollContainerRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=10")
@@ -43,12 +46,13 @@ const FlashSalesSection = () => {
     });
   };
 
+  const handleViewAllButton = () => {
+    navigate("/products");
+  };
+
   return (
     <div className="flash-sales mt-16 mb-12 px-4 bg-white relative">
-      <div className="flex items-center mr-2 mb-6">
-        <div className="bg-red-500 w-4 h-8 mr-4 rounded"></div>
-        <span className="text-red-500 font-semibold">Today&apos;s</span>
-      </div>
+      <RedSubHeading subHeading="Today's" />
       <div className="flex items-center mb-6">
         <h2 className="text-xl md:text-4xl font-medium mr-6 md:mr-16">
           Flash Sales
@@ -70,12 +74,7 @@ const FlashSalesSection = () => {
         <ScrollRightButton scrollRight={scrollRight} />
       </div>
       <div className="mt-4 text-center">
-        <NavLink
-          to="/products"
-          className="bg-red-500 text-sm text-white px-10 py-4 rounded"
-        >
-          View All Products
-        </NavLink>
+        <RedButton text="View All Products" onClick={handleViewAllButton} />
       </div>
       <div className="mt-12 border-b border-gray-200"></div>
     </div>

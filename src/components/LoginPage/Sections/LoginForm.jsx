@@ -3,11 +3,15 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../../schemas/authSchemas";
 import TextInput from "./TextInput";
-import LoginButton from "./LoginButton";
+import RedButton from "../../UI/RedButton";
 import ForgotPasswordLink from "./ForgotPasswordLink";
 
 const LoginForm = ({ onSubmit, errorMessage }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(loginSchema),
   });
 
@@ -27,9 +31,15 @@ const LoginForm = ({ onSubmit, errorMessage }) => {
         type="password"
         placeholder="Password"
       />
-      {errorMessage && <p className="error text-red-500 mb-4">{errorMessage}</p>}
+      {errorMessage && (
+        <p className="error text-red-500 mb-4">{errorMessage}</p>
+      )}
       <div className="flex flex-col sm:flex-row sm:justify-between items-center">
-        <LoginButton />
+        <RedButton
+          text="Log In"
+          onClick={handleSubmit(onSubmit)}
+          fontSize="base"
+        />
         <ForgotPasswordLink />
       </div>
     </form>

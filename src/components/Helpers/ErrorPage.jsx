@@ -1,3 +1,5 @@
+import RedButton from "../UI/RedButton";
+
 const ErrorPage = () => {
   return (
     <div className="px-32 h-1/2 mt-10">
@@ -10,12 +12,11 @@ const ErrorPage = () => {
         <p className="text-lg text-gray-600 mb-8">
           Oops, you encountered an error. You may go to home page.
         </p>
-        <button
+        <RedButton
+          text="Back to home page"
+          fontSize="base"
           onClick={() => (window.location.href = "/")}
-          className="mt-8 px-10 py-4 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors"
-        >
-          Back to home page
-        </button>
+        />
       </div>
     </div>
   );
