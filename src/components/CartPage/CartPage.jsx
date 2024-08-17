@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart";
-import Table from "./Sections/InfoTable/InfoTable";
+import InfoTable from "./Sections/InfoTable/InfoTable";
 import Coupon from "./Sections/Coupon";
 import CartTotal from "./Sections/CartTotal";
 import CartActions from "./Sections/CartActions";
@@ -20,11 +20,6 @@ const Cart = () => {
     dispatch(cartActions.decreaseQuantity(id));
   };
 
-  const formatCurrency = (amount) => {
-    if (amount > 0) return amount.toFixed(2);
-    return "0.00";
-  };
-
   const isCartEmpty = cartItems.length === 0;
 
   return (
@@ -32,21 +27,16 @@ const Cart = () => {
       <Breadcrumb parts={["Home", "Cart"]} />
       <EmptyMessage message="Your cart is empty" isEmpty={isCartEmpty} />
       {!isCartEmpty && (
-        <Table
+        <InfoTable
           cartItems={cartItems}
           increaseQuantityHandler={increaseQuantityHandler}
           decreaseQuantityHandler={decreaseQuantityHandler}
-          formatCurrency={formatCurrency}
         />
       )}
       <CartActions />
       <div className="flex flex-col md:flex-row justify-between items-start mt-20">
         <Coupon />
-        <CartTotal
-          totalAmount={totalAmount}
-          isCartEmpty={isCartEmpty}
-          formatCurrency={formatCurrency}
-        />
+        <CartTotal totalAmount={totalAmount} isCartEmpty={isCartEmpty} />
       </div>
     </div>
   );

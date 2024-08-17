@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import formatCurrency from "../../../../utils/formatCurrency";
 
 const TableItem = ({
   item,
   increaseQuantityHandler,
   decreaseQuantityHandler,
-  formatCurrency,
 }) => {
   return (
     <div className="bg-white rounded shadow-[0px_0px_8px_2px_rgba(0,0,0,0.03)] p-4 sm:p-6 grid grid-cols-3 md:grid-cols-4">

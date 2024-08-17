@@ -1,4 +1,5 @@
 import PlaceOrder from "./PlaceOrder";
+import CartSummaryItem from "../../UI/CartSummaryItem";
 
 /* eslint-disable react/prop-types */
 const CartSummary = ({
@@ -24,19 +25,10 @@ const CartSummary = ({
         </div>
       ))}
     </div>
-    <div className="pt-6 space-y-2 lg:mr-24">
-      <div className="border-b-[1.5px] border-gray-400 pb-4 flex justify-between">
-        <span>Subtotal:</span>
-        <span>${totalAmount}</span>
-      </div>
-      <div className="border-b-[1.5px] border-gray-400 pt-2 pb-4 flex justify-between">
-        <span>Shipping:</span>
-        <span>Free</span>
-      </div>
-      <div className="pt-2 flex justify-between">
-        <span>Total:</span>
-        <span>${totalAmount}</span>
-      </div>
+    <div className="pt-6 space-y-4 lg:mr-24">
+      <CartSummaryItem label="Subtotal" value={totalAmount} />
+      <CartSummaryItem label="Shipping" value="Free" />
+      <CartSummaryItem label="Total" value={totalAmount} lastItem />
     </div>
     <PlaceOrder
       register={register}

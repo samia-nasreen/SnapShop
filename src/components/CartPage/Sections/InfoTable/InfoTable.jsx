@@ -6,7 +6,6 @@ const InfoTable = ({
   cartItems,
   increaseQuantityHandler,
   decreaseQuantityHandler,
-  formatCurrency,
 }) => {
   return (
     <>
@@ -18,7 +17,6 @@ const InfoTable = ({
             item={item}
             increaseQuantityHandler={increaseQuantityHandler}
             decreaseQuantityHandler={decreaseQuantityHandler}
-            formatCurrency={formatCurrency}
           />
         ))}
       </div>
