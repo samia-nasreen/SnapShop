@@ -1,3 +1,5 @@
+import Button from "../../UI/Button";
+
 const BuyNowSection = () => {
   return (
     <div className="w-full flex flex-col md:flex-row h-auto md:h-[520px] mt-16 relative bg-black border-[16px] border-white">
@@ -29,11 +31,14 @@ const BuyNowSection = () => {
             <div className="text-[10px] md:text-xs">Secs</div>
           </div>
         </div>
-
         <a href="#" className="mt-4">
-          <button className="text-md md:text-md bg-green-500 px-8 md:px-10 py-3 md:py-4 rounded text-white group-hover:bg-green-600 transition">
-            Buy Now!
-          </button>
+          <Button
+            text="Buy Now!"
+            onClick={null}
+            fontSize="base"
+            color="bg-green-500"
+            hoverColor="hover:bg-green-600"
+          />
         </a>
       </div>
       <div className="w-full md:w-2/3 h-64 md:h-full relative">

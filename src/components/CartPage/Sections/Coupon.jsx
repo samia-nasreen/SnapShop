@@ -1,16 +1,15 @@
-import RedButton from "../../UI/RedButton";
+import Button from "../../UI/Button";
+import BorderInput from "../../UI/BorderInput";
 
 const Coupon = () => {
   return (
-    <div className="w-full md:w-1/2 flex flex-col justify-center md:pr-4 mb-4 md:mb-0">
-      <div className="flex w-full space-x-4 sm:w-6/7">
-        <input
-          type="text"
-          placeholder="Coupon Code"
-          className="p-2 sm:p-4 text-sm border-[1.5px] border-gray-600 rounded w-2/3 sm:w-3/5"
-        />
-        <RedButton text="Apply Coupon" onClick={null} />
-      </div>
+    <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-center md:pr-4 mb-4 md:mb-0 space-y-4 md:space-y-0 md:space-x-4">
+      <BorderInput
+        placeholder="Coupon Code"
+        fontSize="text-sm"
+        className="flex-1"
+      />
+      <Button text="Apply Coupon" onClick={null} className="md:ml-4" />
     </div>
   );
 };

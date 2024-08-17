@@ -1,13 +1,12 @@
 import { categories } from "../../../data/categories";
 import RedSubHeading from "../../UI/RedSubHeading";
+import Heading from "../../UI/Heading";
 
 const CategorySection = () => {
   return (
     <div className="category-section mt-16 mb-12 px-4 bg-white relative">
       <RedSubHeading subHeading="Categories" />
-      <h2 className="text-2xl md:text-4xl font-medium mb-12">
-        Browse By Category
-      </h2>
+      <Heading text="Browse By Category" />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {categories.map((category, index) => (
           <div

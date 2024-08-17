@@ -20,10 +20,6 @@
   color: white;
 }
 
-.input {
-  @apply w-full p-3 border border-gray-300 rounded mb-4;
-}
-
 .btn {
   @apply py-4 rounded text-white;
 }
@@ -36,16 +32,11 @@
   @apply bg-white border-[1.5px] border-gray-300 text-black flex items-center justify-center;
 }
 
-.error {
-  @apply text-red-500 text-sm mb-2;
-}
-
-.form-input {
+.underline-input {
   width: 100%;
   padding-left: 0;
   border: none;
   border-bottom: 1px solid #666;
-  margin-bottom: 2rem;
   background-color: transparent;
   outline: none !important;
   box-shadow: none !important;
@@ -53,12 +44,13 @@
   -moz-box-shadow: none !important;
 }
 
-.form-input::placeholder {
+.underline-input::placeholder {
   color: #939ba4;
 }
 
-.form-input:focus {
-  border-bottom-color: #666;
+.underline-input:focus {
+  border-bottom-color: #676767;
+  border-bottom-width: 1.5px;
   outline: none !important;
   box-shadow: none !important;
   -webkit-box-shadow: none !important;

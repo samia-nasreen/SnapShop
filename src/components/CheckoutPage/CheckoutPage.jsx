@@ -8,6 +8,7 @@ import { ordersActions } from "../../store/orders";
 import { cartActions } from "../../store/cart";
 import CartSummary from "./Sections/CartSummary";
 import CheckoutForm from "./Sections/CheckoutForm";
+import Heading from "../UI/Heading";
 
 const Checkout = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -46,7 +47,7 @@ const Checkout = () => {
           <span className="mr-2 ml-2">Cart</span> /{" "}
           <span className="ml-2 text-black">Checkout</span>
         </div>
-        <h2 className="text-4xl font-medium mb-10">Billing Details</h2>
+        <Heading text="Billing Details" />
         <CheckoutForm
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}

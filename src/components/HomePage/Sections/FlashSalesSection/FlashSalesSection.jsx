@@ -5,7 +5,8 @@ import ScrollLeftButton from "../../../UI/ScrollButtons/ScrollLeftButton";
 import ScrollRightButton from "../../../UI/ScrollButtons/ScrollRightButton";
 import { useNavigate } from "react-router-dom";
 import RedSubHeading from "../../../UI/RedSubHeading";
-import RedButton from "../../../UI/RedButton";
+import Button from "../../../UI/Button";
+import Heading from "../../../UI/Heading";
 
 const FlashSalesSection = () => {
   const [products, setProducts] = useState([]);
@@ -53,10 +54,8 @@ const FlashSalesSection = () => {
   return (
     <div className="flash-sales mt-16 mb-12 px-4 bg-white relative">
       <RedSubHeading subHeading="Today's" />
-      <div className="flex items-center mb-6">
-        <h2 className="text-xl md:text-4xl font-medium mr-6 md:mr-16">
-          Flash Sales
-        </h2>
+      <div className="flex items-center justify-between">
+        <Heading text="Flash Sales" />
         <TimeRemaining />
       </div>
       <div className="relative">
@@ -74,7 +73,7 @@ const FlashSalesSection = () => {
         <ScrollRightButton scrollRight={scrollRight} />
       </div>
       <div className="mt-4 text-center">
-        <RedButton text="View All Products" onClick={handleViewAllButton} />
+        <Button text="View All Products" onClick={handleViewAllButton} />
       </div>
       <div className="mt-12 border-b border-gray-200"></div>
     </div>

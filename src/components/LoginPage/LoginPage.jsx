@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { jwtDecode } from "jwt-decode";
 import LoginForm from "./Sections/LoginForm";
 import { authActions } from "../../store/auth";
+import AuthImage from "../UI/AuthImage";
+import Heading from "../UI/Heading";
 
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -40,17 +42,17 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row">
-      <div className="hidden lg:block lg:w-2/3 p-16 mb-20">
-        <img
-          src="/assets/signup.png"
-          alt="Log in"
-          className="h-screen w-full object-cover rounded-r"
-        />
+    <div className="flex flex-row px-8 md:px-36 lg:px-36 py-6 sm:py-6 md:py-8 lg:py-10">
+      <div className="hidden md:block lg:block md:w-1/2 lg:w-1/2">
+        <AuthImage />
       </div>
-      <div className="w-full lg:w-1/3 flex flex-col justify-center p-10 lg:-mt-32">
-        <h2 className="text-4xl font-medium mb-6">Log in to SnapShop</h2>
-        <p className="mb-8">Enter your details below</p>
+      <div className="w-full md:w-1/2 lg:w-1/2 flex flex-col justify-center md:pl-24 lg:pl-24">
+        <Heading
+          text="Log in to SnapShop"
+          fontSize="text-xl sm:text-2xl md:text-3xl"
+          className="mb-4"
+        />
+        <p className="mb-6 text-sm sm:text-base">Enter your details below</p>
         <LoginForm onSubmit={handleLogin} errorMessage={errorMessage} />
       </div>
     </div>

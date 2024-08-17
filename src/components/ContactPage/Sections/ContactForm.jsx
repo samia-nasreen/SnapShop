@@ -1,4 +1,4 @@
-import RedButton from "../../UI/RedButton";
+import Button from "../../UI/Button";
 
 const ContactForm = () => {
   return (
@@ -30,7 +30,7 @@ const ContactForm = () => {
           className="w-full p-3 border border-white bg-stone-100 rounded"
         />
         <div className="pt-4 pb-2 text-right">
-          <RedButton text="Send Message" onClick={null} fontSize="base" />
+          <Button text="Send Message" onClick={null} fontSize="base" />
         </div>
       </form>
     </div>

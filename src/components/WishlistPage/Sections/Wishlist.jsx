@@ -3,10 +3,12 @@ import { wishlistActions } from "../../../store/wishlist";
 import { cartActions } from "../../../store/cart";
 import ProductCard from "../../UI/ProductCard/ProductCard";
 import TransparentButton from "../../UI/TransparentButton";
+import EmptyMessage from "../../UI/EmptyMessage";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.wishlist.items);
+  const isWishlistEmpty = wishlist.length === 0;
 
   const moveAllToCartHandler = () => {
     wishlist.forEach((product) => {
@@ -20,13 +22,17 @@ const Wishlist = () => {
     <div className="container mx-auto my-10 p-5">
       <div className="flex flex-row justify-between items-center mb-5">
         <h2 className="text-lg sm:text-2xl">Wishlist ({wishlist.length})</h2>
-        {wishlist.length > 0 && (
+        {!isWishlistEmpty && (
           <TransparentButton
             text="Move All to Cart"
             onClick={moveAllToCartHandler}
           />
         )}
       </div>
+      <EmptyMessage
+        message="No items added to wishlist"
+        isEmpty={isWishlistEmpty}
+      />
       <div className="flex flex-wrap -m-4">
         {wishlist.map((product) => (
           <div className="p-4 w-full sm:w-1/2 lg:w-1/4" key={product.id}>

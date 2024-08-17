@@ -2,7 +2,8 @@ import ProductCard from "../../UI/ProductCard/ProductCard";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import RedSubHeading from "../../UI/RedSubHeading";
-import RedButton from "../../UI/RedButton";
+import Button from "../../UI/Button";
+import Heading from "../../UI/Heading";
 
 const ExploreSection = () => {
   const [products, setProducts] = useState([]);
@@ -42,18 +43,14 @@ const ExploreSection = () => {
   return (
     <div className="explore-section mt-16 mb-12 px-4 bg-white relative">
       <RedSubHeading subHeading="Our Products" />
-      <div className="flex items-center mb-6">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mr-16 mb-4">
-          Explore Our Products
-        </h2>
-      </div>
+      <Heading text="Explore Our Products" />
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {products.map((product) => (
           <ProductCard product={product} key={product.id} />
         ))}
       </div>
       <div className="mt-12 text-center">
-        <RedButton text="View All Products" onClick={handleViewAllButton} />
+        <Button text="View All Products" onClick={handleViewAllButton} />
       </div>
     </div>
   );

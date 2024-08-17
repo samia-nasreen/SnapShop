@@ -1,4 +1,4 @@
-import RedButton from "../UI/RedButton";
+import Button from "../UI/Button";
 
 const ErrorPage = () => {
   return (
@@ -12,7 +12,7 @@ const ErrorPage = () => {
         <p className="text-lg text-gray-600 mb-8">
           Oops, you encountered an error. You may go to home page.
         </p>
-        <RedButton
+        <Button
           text="Back to home page"
           fontSize="base"
           onClick={() => (window.location.href = "/")}

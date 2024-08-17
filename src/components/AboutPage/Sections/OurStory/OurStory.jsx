@@ -1,3 +1,5 @@
+import Heading from "../../../UI/Heading";
+
 const OurStory = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-5 py-12">
@@ -6,10 +8,11 @@ const OurStory = () => {
         <span className="ml-2 text-black">About</span>
       </div>
       <div className="flex flex-col md:flex-row items-center">
-        <div className="w-full md:w-1/2 mt-4 md:-mt-8">
-          <h2 className="text-4xl md:text-6xl font-medium mb-6 md:mb-10">
-            Our Story
-          </h2>
+        <div className="w-full md:w-1/2 mt-4 md:mt-0">
+          <Heading
+            text="Our Story"
+            fontSize="text-4xl md:text-5xl lg:text-6xl"
+          />
           <p className="text-gray-700 font-medium mb-6 md:mb-8 max-w-[510px]">
             Launched in 2015, SnapShop is South Asia&apos;s premier online
             shopping marketplace with an active presence in Bangladesh.
@@ -23,11 +26,11 @@ const OurStory = () => {
             from consumer.
           </p>
         </div>
-        <div className="w-full md:w-[750px] flex justify-center md:justify-end mt-8 md:mt-0 md:-mr-36">
+        <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
           <img
             src="/assets/story.png"
             alt="Our Story"
-            className="w-full h-auto object-cover rounded-l"
+            className="w-full h-auto object-cover rounded"
           />
         </div>
       </div>

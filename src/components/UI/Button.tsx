@@ -1,17 +1,21 @@
 import React from "react";
 
-interface RedButtonProps {
+interface ButtonProps {
   text: string;
   onClick: () => void;
   fontSize?: string;
+  color?: string;
+  hoverColor?: string;
   isDisabled?: boolean;
   className?: string;
 }
 
-const RedButton: React.FC<RedButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   text,
   onClick,
   fontSize = "sm",
+  color = "bg-red-500",
+  hoverColor = "hover:bg-red-600",
   isDisabled = false,
   className = "",
 }) => {
@@ -22,12 +26,9 @@ const RedButton: React.FC<RedButtonProps> = ({
       className={`
         px-[2.5em] py-[1.15em] rounded text-white 
         text-${fontSize} 
-        ${
-          isDisabled
-            ? "bg-gray-500 opacity-50 cursor-not-allowed"
-            : "bg-red-500 hover:bg-red-600"
-        }
-        ${className} // Additional classes
+        ${color}
+        ${isDisabled ? "bg-gray-500 opacity-50 cursor-not-allowed" : hoverColor}
+        ${className}
       `}
     >
       {text}
@@ -35,4 +36,4 @@ const RedButton: React.FC<RedButtonProps> = ({
   );
 };
 
-export default RedButton;
+export default Button;

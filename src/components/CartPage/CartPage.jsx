@@ -4,7 +4,7 @@ import Table from "./Sections/InfoTable/InfoTable";
 import Coupon from "./Sections/Coupon";
 import CartTotal from "./Sections/CartTotal";
 import CartActions from "./Sections/CartActions";
-import EmptyCartMessage from "./Sections/EmptyCart";
+import EmptyMessage from "../UI/EmptyMessage";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const Cart = () => {
         <span className="mr-2">Home</span> /{" "}
         <span className="ml-2 text-black">Cart</span>
       </div>
-      {isCartEmpty && <EmptyCartMessage />}
+      <EmptyMessage message="Your cart is empty" isEmpty={isCartEmpty} />
       {!isCartEmpty && (
         <Table
           cartItems={cartItems}

@@ -2,68 +2,74 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpSchema } from "../../../schemas/authSchemas";
-import TextInput from "./TextInput";
 import GoogleSignUpButton from "./GoogleSignUpButton";
 import LoginLink from "./LoginLink";
-import RedButton from "../../UI/RedButton";
+import Button from "../../UI/Button";
+import LineInput from "../../UI/LineInput";
 
-const SignUpForm = ({ onSubmit }) => {
+const SignUpForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(signUpSchema),
   });
 
+  const handleFormSubmit = (data) => {
+    console.log(data);
+    reset();
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-sm">
-      <TextInput
+    <form onSubmit={handleSubmit(handleFormSubmit)} className="w-full max-w-md">
+      <LineInput
         label="email"
         register={register}
         errors={errors}
         type="email"
         placeholder="Email"
       />
-      <TextInput
+      <LineInput
         label="username"
         register={register}
         errors={errors}
         type="text"
         placeholder="Username"
       />
-      <TextInput
+      <LineInput
         label="password"
         register={register}
         errors={errors}
         type="password"
         placeholder="Password"
       />
-      <TextInput
+      <LineInput
         label="name"
         register={register}
         errors={errors}
         type="text"
         placeholder="Name"
       />
-      <TextInput
+      <LineInput
         label="address"
         register={register}
         errors={errors}
         type="text"
         placeholder="Address"
       />
-      <TextInput
+      <LineInput
         label="phone"
         register={register}
         errors={errors}
         type="text"
         placeholder="Phone"
       />
-      <RedButton
+      <Button
         text="CreateAccount"
         fontSize="base"
-        onClick={handleSubmit(onSubmit)}
+        onClick={handleSubmit(handleFormSubmit)}
         className="min-w-full"
       />
       <GoogleSignUpButton />

@@ -2,9 +2,9 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../../schemas/authSchemas";
-import TextInput from "./TextInput";
-import RedButton from "../../UI/RedButton";
+import Button from "../../UI/Button";
 import ForgotPasswordLink from "./ForgotPasswordLink";
+import LineInput from "../../UI/LineInput";
 
 const LoginForm = ({ onSubmit, errorMessage }) => {
   const {
@@ -17,14 +17,14 @@ const LoginForm = ({ onSubmit, errorMessage }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-sm">
-      <TextInput
+      <LineInput
         label="username"
         register={register}
         errors={errors}
         type="text"
         placeholder="Username"
       />
-      <TextInput
+      <LineInput
         label="password"
         register={register}
         errors={errors}
@@ -35,7 +35,7 @@ const LoginForm = ({ onSubmit, errorMessage }) => {
         <p className="error text-red-500 mb-4">{errorMessage}</p>
       )}
       <div className="flex flex-col sm:flex-row sm:justify-between items-center">
-        <RedButton
+        <Button
           text="Log In"
           onClick={handleSubmit(onSubmit)}
           fontSize="base"

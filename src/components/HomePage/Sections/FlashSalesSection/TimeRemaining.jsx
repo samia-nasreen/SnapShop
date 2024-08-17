@@ -2,7 +2,7 @@ const TimeRemaining = () => {
   return (
     <div className="text-2xl text-gray-900 flex items-center">
       <div className="flex flex-col">
-        <div className="flex space-x-8 text-[8px] md:text-[11px] -my-2 font-semibold text-gray-900">
+        <div className="flex space-x-8 text-[8px] md:text-[11px] font-semibold text-gray-900">
           <span className="mr-3">Days</span>
           <span>Hours</span>
           <span>Minutes</span>

@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import ProductCard from "../../UI/ProductCard/ProductCard";
 import { useState, useEffect, useRef } from "react";
 import RedSubHeading from "../../UI/RedSubHeading";
-import RedButton from "../../UI/RedButton";
+import Button from "../../UI/Button";
+import Heading from "../../UI/Heading";
 
 const TopRatedSection = () => {
   const [products, setProducts] = useState([]);
@@ -47,13 +48,10 @@ const TopRatedSection = () => {
   return (
     <div className="flash-sales mt-16 mb-12 px-4 bg-white relative">
       <RedSubHeading subHeading="This Month" />
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl md:text-4xl font-medium md:mr-16">
-          Top Rated Products
-        </h2>
-        <RedButton text="View All" onClick={handleViewAllButton} />
+      <div className="flex items-center justify-between">
+        <Heading text="Top Rated Products" />
+        <Button text="View All" onClick={handleViewAllButton} />
       </div>
-
       <div className="relative">
         <div
           ref={scrollContainerRef}
