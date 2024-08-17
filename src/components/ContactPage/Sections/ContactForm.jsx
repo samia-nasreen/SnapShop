@@ -1,4 +1,5 @@
 import Button from "../../UI/Button";
+import RoundedInput from "../../UI/RoundedInput";
 
 const ContactForm = () => {
   return (
@@ -8,21 +9,9 @@ const ContactForm = () => {
     >
       <form className="flex flex-col space-y-4">
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-4">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full p-3 border border-white bg-stone-100 rounded"
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            className="w-full p-3 border border-white bg-stone-100 rounded"
-          />
-          <input
-            type="tel"
-            placeholder="Your Phone"
-            className="w-full p-3 border border-white bg-stone-100 rounded"
-          />
+          <RoundedInput name="name" placeholder="Your Name" />
+          <RoundedInput name="email" placeholder="Your Email" />
+          <RoundedInput type="tel" name="phone" placeholder="Your Phone" />
         </div>
         <textarea
           placeholder="Your Message"

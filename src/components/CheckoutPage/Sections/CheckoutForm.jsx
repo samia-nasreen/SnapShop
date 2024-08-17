@@ -1,50 +1,50 @@
 /* eslint-disable react/prop-types */
-import FormInput from "./FormInput";
+import RoundedInput from "../../UI/RoundedInput";
 
 const CheckoutForm = ({ handleSubmit, onSubmit, register, errors }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 text-zinc-400">
-      <FormInput
+      <RoundedInput
         label="First Name"
         name="firstName"
         register={register}
         errors={errors}
         required
       />
-      <FormInput
+      <RoundedInput
         label="Company Name"
         name="companyName"
         register={register}
         errors={errors}
       />
-      <FormInput
+      <RoundedInput
         label="Street Address"
         name="streetAddress"
         register={register}
         errors={errors}
         required
       />
-      <FormInput
+      <RoundedInput
         label="Apartment, floor, etc. (optional)"
         name="apartment"
         register={register}
         errors={errors}
       />
-      <FormInput
+      <RoundedInput
         label="Town/City"
         name="city"
         register={register}
         errors={errors}
         required
       />
-      <FormInput
+      <RoundedInput
         label="Phone Number"
         name="phoneNumber"
         register={register}
         errors={errors}
         required
       />
-      <FormInput
+      <RoundedInput
         label="Email Address"
         name="email"
         register={register}

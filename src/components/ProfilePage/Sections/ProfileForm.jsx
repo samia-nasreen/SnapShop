@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useForm } from "react-hook-form";
-import TextInput from "./TextInput";
-import PasswordChangeSection from "./PasswordChange";
+import PasswordChange from "./PasswordChange";
 import Button from "../../UI/Button";
+import RoundedInput from "../../UI/RoundedInput";
 
 const ProfileForm = ({ userData, onSubmit, capitalizeFirstLetter }) => {
   const {
@@ -18,33 +18,37 @@ const ProfileForm = ({ userData, onSubmit, capitalizeFirstLetter }) => {
       </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 mb-5">
-          <TextInput
+          <RoundedInput
             label="First Name"
+            name="firstName"
             defaultValue={capitalizeFirstLetter(userData.name.firstname)}
-            {...register("firstName", { required: true })}
+            register={register}
             readOnly
           />
-          <TextInput
+          <RoundedInput
             label="Last Name"
+            name="lastName"
             defaultValue={capitalizeFirstLetter(userData.name.lastname)}
-            {...register("lastName", { required: true })}
+            register={register}
             readOnly
           />
-          <TextInput
+          <RoundedInput
             label="Email"
+            name="email"
             type="email"
             defaultValue={userData.email}
-            {...register("email", { required: true })}
+            register={register}
             readOnly
           />
-          <TextInput
+          <RoundedInput
             label="Address"
+            name="address"
             defaultValue={`${userData.address.street}, ${userData.address.number}, ${userData.address.city}, ${userData.address.zipcode}`}
-            {...register("address", { required: true })}
+            register={register}
             readOnly
           />
         </div>
-        <PasswordChangeSection register={register} errors={errors} />
+        <PasswordChange register={register} errors={errors} />
         <div className="flex justify-end space-x-4">
           <button type="button" className="px-4 py-2">
             Cancel
