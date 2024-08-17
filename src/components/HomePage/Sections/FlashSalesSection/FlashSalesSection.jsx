@@ -1,4 +1,3 @@
-import ProductCard from "../../../UI/ProductCard/ProductCard";
 import { useState, useEffect, useRef } from "react";
 import TimeRemaining from "./TimeRemaining";
 import ScrollLeftButton from "../../../UI/ScrollButtons/ScrollLeftButton";
@@ -7,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import RedSubHeading from "../../../UI/RedSubHeading";
 import Button from "../../../UI/Button";
 import Heading from "../../../UI/Heading";
+import ProductsGrid from "../../../UI/ProductsGrid";
 
 const FlashSalesSection = () => {
   const [products, setProducts] = useState([]);
@@ -59,16 +59,11 @@ const FlashSalesSection = () => {
         <TimeRemaining />
       </div>
       <div className="relative">
-        <div
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto space-x-4 scrollbar-hide py-4 px-2"
-        >
-          {products.map((product) => (
-            <div className="flex-shrink-0" key={product.id}>
-              <ProductCard product={product} />
-            </div>
-          ))}
-        </div>
+        <ProductsGrid
+          products={products}
+          scrollContainerRef={scrollContainerRef}
+          scroll
+        />
         <ScrollLeftButton scrollLeft={scrollLeft} />
         <ScrollRightButton scrollRight={scrollRight} />
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { formatCurrency } from "../../utils/formatCurrency";
+import formatCurrency from "../../utils/formatCurrency";
 
 interface CartSummaryItemProps {
   label: string;

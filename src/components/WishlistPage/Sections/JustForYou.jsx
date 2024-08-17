@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import ProductCard from "../../UI/ProductCard/ProductCard";
 import { useState, useEffect } from "react";
 import RedSubHeading from "../../UI/RedSubHeading";
 import TransparentButton from "../../UI/TransparentButton";
+import ProductsGrid from "../../UI/ProductsGrid";
 
 const JustForYou = () => {
   const navigate = useNavigate();
@@ -43,13 +43,7 @@ const JustForYou = () => {
         <RedSubHeading subHeading="Just For You" />
         <TransparentButton text="See All" onClick={handleSeeAllButton} />
       </div>
-      <div className="flex flex-wrap">
-        {products.map((product) => (
-          <div className="p-4 w-full sm:w-1/2 lg:w-1/4" key={product.id}>
-            <ProductCard product={product} />
-          </div>
-        ))}
-      </div>
+      <ProductsGrid products={products} />
     </div>
   );
 };

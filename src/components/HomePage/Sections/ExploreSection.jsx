@@ -1,9 +1,9 @@
-import ProductCard from "../../UI/ProductCard/ProductCard";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import RedSubHeading from "../../UI/RedSubHeading";
 import Button from "../../UI/Button";
 import Heading from "../../UI/Heading";
+import ProductsGrid from "../../UI/ProductsGrid";
 
 const ExploreSection = () => {
   const [products, setProducts] = useState([]);
@@ -44,11 +44,7 @@ const ExploreSection = () => {
     <div className="explore-section mt-16 mb-12 px-4 bg-white relative">
       <RedSubHeading subHeading="Our Products" />
       <Heading text="Explore Our Products" />
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        {products.map((product) => (
-          <ProductCard product={product} key={product.id} />
-        ))}
-      </div>
+      <ProductsGrid products={products} />
       <div className="mt-12 text-center">
         <Button text="View All Products" onClick={handleViewAllButton} />
       </div>

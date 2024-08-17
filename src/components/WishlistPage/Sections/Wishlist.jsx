@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { wishlistActions } from "../../../store/wishlist";
 import { cartActions } from "../../../store/cart";
-import ProductCard from "../../UI/ProductCard/ProductCard";
 import TransparentButton from "../../UI/TransparentButton";
 import EmptyMessage from "../../UI/EmptyMessage";
+import ProductsGrid from "../../UI/ProductsGrid";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
@@ -33,13 +33,7 @@ const Wishlist = () => {
         message="No items added to wishlist"
         isEmpty={isWishlistEmpty}
       />
-      <div className="flex flex-wrap -m-4">
-        {wishlist.map((product) => (
-          <div className="p-4 w-full sm:w-1/2 lg:w-1/4" key={product.id}>
-            <ProductCard product={product} isWishlistPage />
-          </div>
-        ))}
-      </div>
+      <ProductsGrid products={wishlist} />
     </div>
   );
 };

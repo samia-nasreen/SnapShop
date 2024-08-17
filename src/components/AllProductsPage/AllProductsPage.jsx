@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ProductCard from "../UI/ProductCard/ProductCard";
+import ProductsGrid from "../UI/ProductsGrid";
 
 const AllProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -27,11 +27,7 @@ const AllProductsPage = () => {
       <h1 className="text-2xl font-semibold text-gray-900 mb-4 md:mb-8">
         All Products
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      <ProductsGrid products={products} />
     </div>
   );
 };

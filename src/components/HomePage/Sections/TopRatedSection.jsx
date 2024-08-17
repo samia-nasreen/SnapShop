@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import ProductCard from "../../UI/ProductCard/ProductCard";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import RedSubHeading from "../../UI/RedSubHeading";
 import Button from "../../UI/Button";
 import Heading from "../../UI/Heading";
+import ProductsGrid from "../../UI/ProductsGrid";
 
 const TopRatedSection = () => {
   const [products, setProducts] = useState([]);
-  const scrollContainerRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,24 +45,13 @@ const TopRatedSection = () => {
   };
 
   return (
-    <div className="flash-sales mt-16 mb-12 px-4 bg-white relative">
+    <div className="flash-sales mt-16 mb-24 px-4 bg-white relative">
       <RedSubHeading subHeading="This Month" />
       <div className="flex items-center justify-between">
         <Heading text="Top Rated Products" />
         <Button text="View All" onClick={handleViewAllButton} />
       </div>
-      <div className="relative">
-        <div
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto space-x-4 scrollbar-hide py-4 px-2"
-        >
-          {products.map((product) => (
-            <div className="flex-shrink-0" key={product.id}>
-              <ProductCard product={product} />
-            </div>
-          ))}
-        </div>
-      </div>
+      <ProductsGrid products={products} />
     </div>
   );
 };
