@@ -2,11 +2,7 @@ import Heading from "../../../UI/Heading";
 
 const OurStory = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 md:px-5 py-12">
-      <div className="text-xs text-gray-500 mb-8 -mt-2">
-        <span className="mr-2">Home</span> /{" "}
-        <span className="ml-2 text-black">About</span>
-      </div>
+    <div className="max-w-7xl mx-auto px-4 md:px-5 pb-12">
       <div className="flex flex-col md:flex-row items-center">
         <div className="w-full md:w-1/2 mt-4 md:mt-0">
           <Heading

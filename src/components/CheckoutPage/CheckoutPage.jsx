@@ -9,6 +9,7 @@ import { cartActions } from "../../store/cart";
 import CartSummary from "./Sections/CartSummary";
 import CheckoutForm from "./Sections/CheckoutForm";
 import Heading from "../UI/Heading";
+import Breadcrumb from "../UI/Breadcrumb";
 
 const Checkout = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -39,14 +40,9 @@ const Checkout = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div className="lg:pr-24">
-        <div className="text-xs text-gray-500 mb-12 mt-2">
-          <span className="mr-2">Account</span> /{" "}
-          <span className="mr-2 ml-2">My Account</span> /{" "}
-          <span className="mr-2 ml-2">Cart</span> /{" "}
-          <span className="ml-2 text-black">Checkout</span>
-        </div>
+        <Breadcrumb parts={["Account", "My Account", "Cart", "Checkout"]} />
         <Heading text="Billing Details" />
         <CheckoutForm
           handleSubmit={handleSubmit}

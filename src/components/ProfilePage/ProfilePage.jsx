@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import SideBar from "./Sections/SideBar";
 import ProfileForm from "./Sections/ProfileForm";
+import Breadcrumb from "../UI/Breadcrumb";
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState(null);
@@ -36,12 +37,9 @@ const ProfilePage = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center relative">
-      <div className="container mx-auto mt-4 mb-32 p-5">
+      <div className="container mx-auto mb-32 px-5">
         <div className="flex justify-between">
-          <div className="text-xs text-gray-500 mb-12 ml-3">
-            <span className="mr-2">Home</span> /{" "}
-            <span className="ml-2 text-black">My Account</span>
-          </div>
+          <Breadcrumb parts={["Home", "My Account"]} className="ml-2" />
           <div className="text-sm text-gray-500 mb-12">
             <span className="mr-1">Welcome!</span>
             <span className="text-red-500">

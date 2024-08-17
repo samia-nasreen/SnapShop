@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductDetail from "./Sections/ProductDetail/ProductDetail";
 import RelatedItems from "./Sections/RelatedItems/RelatedItems";
+import Breadcrumb from "../UI/Breadcrumb";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
@@ -62,11 +63,10 @@ const ProductDetailPage = () => {
 
   return (
     <div className="px-8 md:px-28">
-      <div className="text-xs text-gray-500 mt-12 ml-4">
-        <span className="mr-2">Account</span> /
-        <span className="mx-2">{product.category}</span> /
-        <span className="ml-2 text-black">{product.title}</span>
-      </div>
+      <Breadcrumb
+        parts={["Account", product.category, product.title]}
+        className="ml-4"
+      />
       <ProductDetail product={product} />
       <RelatedItems relatedProducts={relatedProducts} />
     </div>

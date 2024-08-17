@@ -5,6 +5,7 @@ import Coupon from "./Sections/Coupon";
 import CartTotal from "./Sections/CartTotal";
 import CartActions from "./Sections/CartActions";
 import EmptyMessage from "../UI/EmptyMessage";
+import Breadcrumb from "../UI/Breadcrumb";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -28,10 +29,7 @@ const Cart = () => {
 
   return (
     <div className="container px-8 sm:px-8 mx-auto pb-32">
-      <div className="text-xs text-gray-500 mb-8 mt-10">
-        <span className="mr-2">Home</span> /{" "}
-        <span className="ml-2 text-black">Cart</span>
-      </div>
+      <Breadcrumb parts={["Home", "Cart"]} />
       <EmptyMessage message="Your cart is empty" isEmpty={isCartEmpty} />
       {!isCartEmpty && (
         <Table

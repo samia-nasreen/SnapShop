@@ -23,7 +23,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row lg:space-x-8 p-4 max-w-7xl mx-auto mt-8 mb-20">
+    <div className="flex flex-col lg:flex-row lg:space-x-8 px-4 max-w-7xl mx-auto mb-20">
       <ImageGrid image={product.image} title={product.title} />
       <div className="lg:w-1/3 flex flex-col space-y-4 lg:pl-8">
         <h1 className="text-xl md:text-2xl font-semibold text-gray-900">
