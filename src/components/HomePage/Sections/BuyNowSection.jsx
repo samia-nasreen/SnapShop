@@ -1,6 +1,16 @@
+/* eslint-disable no-unused-vars */
 import Button from "../../UI/Button";
+import TimerCircle from "../../UI/TimerCircle";
+import useCountdown from "../../../hooks/useCountdown";
 
 const BuyNowSection = () => {
+  const { days, hours, minutes, seconds } = useCountdown({
+    days: 23,
+    hours: 5,
+    minutes: 59,
+    seconds: 35,
+  });
+
   return (
     <div className="w-full flex flex-col md:flex-row h-auto md:h-[520px] mt-16 relative bg-black border-[16px] border-white">
       <div className="flex flex-col justify-center items-start text-white w-full md:w-1/3 pl-12 md:pl-16 z-10 py-8 md:py-0">
@@ -13,23 +23,11 @@ const BuyNowSection = () => {
         <p className="mt-2 mb-4 text-2xl md:text-4xl font-medium">
           Music Experience
         </p>
-        <div className="flex items-center space-x-2 md:space-x-4 mt-4 mb-4">
-          <div className="flex flex-col items-center bg-white text-black p-2 md:p-4 rounded-full w-12 md:w-16 h-12 md:h-16">
-            <div className="text-xs md:text-sm font-semibold">23</div>
-            <div className="text-[10px] md:text-xs">Hours</div>
-          </div>
-          <div className="flex flex-col items-center bg-white text-black p-2 md:p-4 rounded-full w-12 md:w-16 h-12 md:h-16">
-            <div className="text-xs md:text-sm font-semibold">05</div>
-            <div className="text-[10px] md:text-xs">Days</div>
-          </div>
-          <div className="flex flex-col items-center bg-white text-black p-2 md:p-4 rounded-full w-12 md:w-16 h-12 md:h-16">
-            <div className="text-xs md:text-sm font-semibold">59</div>
-            <div className="text-[10px] md:text-xs">Mins</div>
-          </div>
-          <div className="flex flex-col items-center bg-white text-black p-2 md:p-4 rounded-full w-12 md:w-16 h-12 md:h-16">
-            <div className="text-xs md:text-sm font-semibold">35</div>
-            <div className="text-[10px] md:text-xs">Secs</div>
-          </div>
+        <div className="relative flex items-center space-x-2 md:space-x-4 mt-4 mb-4">
+          <TimerCircle time={days} unit="Days" />
+          <TimerCircle time={hours} unit="Hours" />
+          <TimerCircle time={minutes} unit="Minutes" />
+          <TimerCircle time={seconds} unit="Seconds" />
         </div>
         <a href="#" className="mt-4">
           <Button

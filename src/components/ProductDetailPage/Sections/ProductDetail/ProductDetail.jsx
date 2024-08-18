@@ -11,8 +11,10 @@ import ImageGrid from "./ImageGrid";
 const ProductDetail = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch(`https://fakestoreapi.com/products/${productId}`)
       .then((res) => res.json())
       .then((data) => {
@@ -28,10 +30,14 @@ const ProductDetail = () => {
           ratingCount: data.rating.count,
         };
         setProduct(product);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
       });
   }, [productId]);
 
-  if (!product) {
+  if (loading) {
     return <div className="flex justify-center p-8">Loading...</div>;
   }
 

@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import "react-loading-skeleton/dist/skeleton.css";
+
 const ImageGrid = ({ image, title }) => {
   return (
     <div className="flex flex-grow w-full md:w-2/3 h-[350px] md:h-[615px]  mb-6 md:mb-0">
