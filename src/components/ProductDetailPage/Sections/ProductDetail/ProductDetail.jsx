@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+/* eslint-disable react/prop-types */
 import DeliveryDetails from "./DeliveryDetails";
 import Rating from "../../../UI/Rating";
 import WishListIcon from "../../../UI/WishlistIcon";
@@ -8,39 +7,7 @@ import Colors from "./Colors";
 import Sizes from "./Sizes";
 import ImageGrid from "./ImageGrid";
 
-const ProductDetail = () => {
-  const { productId } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch(`https://fakestoreapi.com/products/${productId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        const product = {
-          id: data.id,
-          name: data.title,
-          image: data.image,
-          description: data.description,
-          discount: Math.floor(Math.random() * 50) + 10,
-          price: data.price,
-          originalPrice: (data.price * (1 + Math.random() * 0.5)).toFixed(2),
-          rating: data.rating.rate,
-          ratingCount: data.rating.count,
-        };
-        setProduct(product);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
-  }, [productId]);
-
-  if (loading) {
-    return <div className="flex justify-center p-8">Loading...</div>;
-  }
-
+const ProductDetail = ({ product }) => {
   return (
     <div className="flex flex-col lg:flex-row lg:space-x-8 px-4 max-w-7xl mx-auto mb-20">
       <ImageGrid image={product.image} title={product.name} />

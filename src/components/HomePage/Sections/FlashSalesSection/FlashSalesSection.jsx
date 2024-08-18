@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import TimeRemaining from "./TimeRemaining";
 import ScrollLeftButton from "../../../UI/ScrollButtons/ScrollLeftButton";
 import ScrollRightButton from "../../../UI/ScrollButtons/ScrollRightButton";
@@ -7,29 +7,12 @@ import RedSubHeading from "../../../UI/RedSubHeading";
 import Button from "../../../UI/Button";
 import Heading from "../../../UI/Heading";
 import ProductsGrid from "../../../UI/ProductsGrid";
+import useFetchProducts from "../../../../hooks/useFetchProducts";
 
 const FlashSalesSection = () => {
-  const [products, setProducts] = useState([]);
   const scrollContainerRef = useRef(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=10")
-      .then((res) => res.json())
-      .then((json) => {
-        const formattedProducts = json.map((product) => ({
-          id: product.id,
-          name: product.title,
-          image: product.image,
-          discount: Math.floor(Math.random() * 50) + 10,
-          price: product.price,
-          originalPrice: (product.price * (1 + Math.random() * 0.5)).toFixed(2),
-          rating: product.rating.rate,
-          ratingCount: product.rating.count,
-        }));
-        setProducts(formattedProducts);
-      });
-  }, []);
+  const { products } = useFetchProducts({ limit: 10, randomize: true });
 
   const scrollLeft = () => {
     scrollContainerRef.current.scrollBy({

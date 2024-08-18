@@ -1,44 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 import RedSubHeading from "../../UI/RedSubHeading";
 import Button from "../../UI/Button";
 import Heading from "../../UI/Heading";
 import ProductsGrid from "../../UI/ProductsGrid";
+import useFetchProducts from "../../../hooks/useFetchProducts";
 
 const TopRatedSection = () => {
-  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=10")
-      .then((res) => res.json())
-      .then((json) => {
-        const filteredProducts = json.filter(
-          (product) => product.rating.rate >= 4
-        );
-
-        const randomProducts = [];
-        while (randomProducts.length < 4 && filteredProducts.length > 0) {
-          const randomIndex = Math.floor(
-            Math.random() * filteredProducts.length
-          );
-          randomProducts.push(filteredProducts.splice(randomIndex, 1)[0]);
-        }
-
-        const formattedProducts = randomProducts.map((product) => ({
-          id: product.id,
-          name: product.title,
-          image: product.image,
-          discount: Math.floor(Math.random() * 50) + 10,
-          price: product.price,
-          originalPrice: (product.price * (1 + Math.random() * 0.5)).toFixed(2),
-          rating: product.rating.rate,
-          ratingCount: product.rating.count,
-        }));
-
-        setProducts(formattedProducts);
-      });
-  }, []);
+  const { products } = useFetchProducts({
+    minRating: 4,
+    randomize: true,
+    count: 4,
+  });
 
   const handleViewAllButton = () => {
     navigate("/products");
