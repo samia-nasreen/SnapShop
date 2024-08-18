@@ -1,26 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from "react-redux";
-import { wishlistActions } from "../../../store/wishlist";
 import { cartActions } from "../../../store/cart";
 import { Link } from "react-router-dom";
-import Rating from "../Rating/Rating";
-import WishListIcon from "../WishlistIcon/WishlistIcon";
+import Rating from "../Rating";
+import WishListIcon from "../WishlistIcon";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
-  const wishlist = useSelector((state) => state.wishlist.items);
   const cartItems = useSelector((state) => state.cart.items);
 
-  const isInWishlist = wishlist.some((item) => item.id === product.id);
   const isInCart = cartItems.some((item) => item.id === product.id);
-
-  const handleWishlistToggle = () => {
-    if (isInWishlist) {
-      dispatch(wishlistActions.removeFromWishlist(product.id));
-    } else {
-      dispatch(wishlistActions.addToWishlist(product));
-    }
-  };
 
   const handleAddToCart = () => {
     if (!isInCart) {
@@ -42,8 +31,10 @@ const ProductCard = ({ product }) => {
           -{product.discount}%
         </div>
         <WishListIcon
-          isInWishlist={isInWishlist}
-          handleWishlistToggle={handleWishlistToggle}
+          product={product}
+          size="6"
+          radius="rounded-full"
+          className="absolute top-1 right-1 shadow-md"
         />
         <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-100 text-white text-sm text-center  rounded-b py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
           <button className="w-full" onClick={handleAddToCart}>
@@ -61,7 +52,12 @@ const ProductCard = ({ product }) => {
             ${product.originalPrice}
           </span>
         </div>
-        <Rating rating={product.rating} ratingCount={product.ratingCount} />
+        <div className="flex items-center mt-2">
+          <Rating rating={product.rating} size="4" />
+          <span className="ml-1 text-sm text-gray-600">
+            ({product.ratingCount})
+          </span>
+        </div>
       </div>
     </div>
   );

@@ -1,40 +1,34 @@
 /* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from "react-redux";
-import { wishlistActions } from "../../../store/wishlist";
+import { wishlistActions } from "../../store/wishlist";
 
-const WishListIconLarge = ({ product }) => {
+const WishListIcon = ({
+  product,
+  className,
+  size = "9",
+  radius = "rounded-md",
+}) => {
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.wishlist.items);
 
   const isInWishlist = wishlist.some((item) => item.id === product.id);
 
   const handleWishlistToggle = () => {
-    const productData = {
-      id: product.id,
-      name: product.title,
-      image: product.image,
-      discount: Math.floor(Math.random() * 50) + 10,
-      price: product.price,
-      originalPrice: (product.price * (1 + Math.random() * 0.5)).toFixed(2),
-      rating: product.rating.rate,
-      ratingCount: product.rating.count,
-    };
-
     if (isInWishlist) {
       dispatch(wishlistActions.removeFromWishlist(product.id));
     } else {
-      dispatch(wishlistActions.addToWishlist(productData));
+      dispatch(wishlistActions.addToWishlist(product));
     }
   };
   return (
     <button
-      className={`border border-gray-500 p-1 rounded-md`}
+      className={`border bg-white border-gray-500 p-1 ${radius} top-2 right-2 ${className}`}
       onClick={handleWishlistToggle}
     >
       <svg
-        className="w-8 md:w-9 h-8 md:h-9 p-1"
-        fill="none"
-        stroke={isInWishlist ? "red" : "black"}
+        className={`w-${size} h-${size} p-1`}
+        fill={isInWishlist ? "#ef4444" : "none"}
+        stroke={isInWishlist ? "#ef4444" : "black"}
         strokeWidth="1.5"
         viewBox="0 0 24 24"
       >
@@ -44,4 +38,4 @@ const WishListIconLarge = ({ product }) => {
   );
 };
 
-export default WishListIconLarge;
+export default WishListIcon;
