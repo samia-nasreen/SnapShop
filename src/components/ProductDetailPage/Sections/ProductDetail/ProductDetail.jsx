@@ -2,16 +2,16 @@
 import DeliveryDetails from "./DeliveryDetails";
 import Rating from "../../../UI/Rating";
 import WishListIcon from "../../../UI/WishlistIcon";
-import Quantity from "./Quantity";
 import Colors from "./Colors";
 import Sizes from "./Sizes";
 import ImageGrid from "./ImageGrid";
+import QuantitySelector from "./QuantitySelector";
 
 const ProductDetail = ({ product }) => {
   return (
     <div className="flex flex-col lg:flex-row lg:space-x-8 px-4 max-w-7xl mx-auto mb-20">
       <ImageGrid image={product.image} title={product.name} />
-      <div className="lg:w-1/3 flex flex-col space-y-4 lg:pl-8">
+      <div className="lg:w-1/3 flex flex-col space-y-4 lg:pl-2">
         <h1 className="text-xl md:text-2xl font-semibold text-gray-900">
           {product.name}
         </h1>
@@ -35,8 +35,8 @@ const ProductDetail = ({ product }) => {
           <Sizes />
         </div>
         <div className="flex flex-row space-x-3 md:space-x-4 pt-4 pb-6 items-center">
-          <Quantity product={product} />
-          <WishListIcon product={product} />
+          <QuantitySelector product={product} />
+          <WishListIcon size="10" product={product} />
         </div>
         <DeliveryDetails />
       </div>

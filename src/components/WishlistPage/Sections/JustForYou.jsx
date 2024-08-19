@@ -3,10 +3,11 @@ import RedSubHeading from "../../UI/RedSubHeading";
 import TransparentButton from "../../UI/TransparentButton";
 import ProductsGrid from "../../UI/ProductsGrid";
 import useFetchProducts from "../../../hooks/useFetchProducts";
+import GridSkeleton from "../../UI/GridSkeleton";
 
 const JustForYou = () => {
   const navigate = useNavigate();
-  const { products } = useFetchProducts({ randomize: true, count: 4 });
+  const { products, loading } = useFetchProducts({ randomize: true, count: 4 });
 
   const handleSeeAllButton = () => {
     navigate("/products");
@@ -18,7 +19,8 @@ const JustForYou = () => {
         <RedSubHeading subHeading="Just For You" />
         <TransparentButton text="See All" onClick={handleSeeAllButton} />
       </div>
-      <ProductsGrid products={products} />
+      {loading && <GridSkeleton />}
+      {!loading && <ProductsGrid products={products} />}
     </div>
   );
 };

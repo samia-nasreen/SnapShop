@@ -16,7 +16,7 @@ const CartActions = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row justify-between mt-8">
+    <div className="flex flex-row justify-between mt-8">
       <TransparentButton
         text="Return To Shop"
         fontWeight="medium"

@@ -2,8 +2,9 @@
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../../store/cart";
 import { useState } from "react";
+import Button from "../../../UI/Button";
 
-const Quantity = ({ product }) => {
+const QuantitySelector = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
@@ -23,33 +24,29 @@ const Quantity = ({ product }) => {
   const handleQuantityChange = (delta) => {
     setQuantity((prev) => Math.max(1, prev + delta));
   };
+
   return (
-    <>
-      <div className="flex items-center border-[1px] border-gray-500 rounded">
+    <div className="flex items-center space-x-3 md:space-x-1">
+      <div className="flex items-center md:w-40">
         <button
-          className="px-2 md:px-3 py-1 md:py-2 text-2xl border-r-[1px] border-gray-500 focus:bg-red-500 focus:text-white"
+          className="px-3 md:px-4 py-3 text-lg md:text-xl border border-gray-500 rounded-l focus:border-white focus:bg-red-500 focus:text-white transition-colors duration-300"
           onClick={() => handleQuantityChange(-1)}
         >
           -
         </button>
-        <span className="w-10 md:w-14 text-center md:text-xl font-semibold">
+        <div className="w-14 py-3 border-y border-gray-500 text-center text-lg md:text-xl font-semibold">
           {quantity}
-        </span>
+        </div>
         <button
-          className="px-2 md:px-3 py-1 md:py-2 text-2xl border-l-[1px] border-gray-500 focus:bg-red-500 focus:text-white"
+          className="px-3 md:px-4 py-3 text-lg md:text-xl border border-gray-500 rounded-r focus:border-white focus:bg-red-500 focus:text-white transition-colors duration-300"
           onClick={() => handleQuantityChange(1)}
         >
           +
         </button>
       </div>
-      <button
-        onClick={handleAddToCart}
-        className="bg-red-500 text-white px-3 md:px-6 h-10 md:h-12 rounded"
-      >
-        Add To Cart
-      </button>
-    </>
+      <Button text="Add To Cart" onClick={handleAddToCart} />
+    </div>
   );
 };
 
-export default Quantity;
+export default QuantitySelector;

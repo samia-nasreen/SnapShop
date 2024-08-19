@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 const LoginLink = () => (
-  <p className="mt-8 flex items-center justify-center">
+  <p className="mt-4 flex items-center justify-center">
     Already have an account?{" "}
     <NavLink
       to="/login"

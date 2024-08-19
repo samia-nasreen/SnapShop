@@ -18,18 +18,10 @@ const SideBar = ({ isSidebarOpen, sidebarRef, closeSidebar }) => {
         <div className="p-6">
           <SearchBar className="mb-4" />
           <ul>
-            <SideBarNavItem to="/" closeSidebar={closeSidebar}>
-              Home
-            </SideBarNavItem>
-            <SideBarNavItem to="/contact" closeSidebar={closeSidebar}>
-              Contact
-            </SideBarNavItem>
-            <SideBarNavItem to="/about" closeSidebar={closeSidebar}>
-              About
-            </SideBarNavItem>
-            <SideBarNavItem to="/signup" closeSidebar={closeSidebar}>
-              Sign Up
-            </SideBarNavItem>
+            <SideBarNavItem to="/" closeSidebar={closeSidebar} item="Home" />
+            <SideBarNavItem to="/contact" closeSidebar={closeSidebar} item="Contact" />
+            <SideBarNavItem to="/about" closeSidebar={closeSidebar} item="About" />
+            <SideBarNavItem to="/signup" closeSidebar={closeSidebar} item="Sign Up" />
           </ul>
         </div>
       </div>

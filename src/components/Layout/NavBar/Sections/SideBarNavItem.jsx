@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-const SideBarNavItem = ({ to, closeSidebar, children }) => {
+const SideBarNavItem = ({ to, closeSidebar, item }) => {
   return (
     <li className="my-2">
       <NavLink
@@ -9,7 +9,7 @@ const SideBarNavItem = ({ to, closeSidebar, children }) => {
         onClick={closeSidebar}
         className="block py-2 px-4 text-gray-800 hover:bg-gray-200"
       >
-        {children}
+        {item}
       </NavLink>
     </li>
   );

@@ -4,10 +4,11 @@ import Button from "../../UI/Button";
 import Heading from "../../UI/Heading";
 import ProductsGrid from "../../UI/ProductsGrid";
 import useFetchProducts from "../../../hooks/useFetchProducts";
+import GridSkeleton from "../../UI/GridSkeleton";
 
 const TopRatedSection = () => {
   const navigate = useNavigate();
-  const { products } = useFetchProducts({
+  const { products, loading } = useFetchProducts({
     minRating: 4,
     randomize: true,
     count: 4,
@@ -20,11 +21,12 @@ const TopRatedSection = () => {
   return (
     <div className="flash-sales mt-16 mb-24 px-4 bg-white relative">
       <RedSubHeading subHeading="This Month" />
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mb-4 ">
         <Heading text="Top Rated Products" />
         <Button text="View All" onClick={handleViewAllButton} />
       </div>
-      <ProductsGrid products={products} />
+      {loading && <GridSkeleton />}
+      {!loading && <ProductsGrid products={products} />}
     </div>
   );
 };

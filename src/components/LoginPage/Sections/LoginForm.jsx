@@ -32,7 +32,7 @@ const LoginForm = ({ onSubmit, errorMessage }) => {
         placeholder="Password"
       />
       {errorMessage && (
-        <p className="error text-red-500 mb-4">{errorMessage}</p>
+        <p className="text-red-500 mb-4">{errorMessage}</p>
       )}
       <div className="flex flex-col sm:flex-row sm:justify-between items-center">
         <Button

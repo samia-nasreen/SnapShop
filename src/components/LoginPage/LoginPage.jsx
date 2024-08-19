@@ -6,6 +6,7 @@ import LoginForm from "./Sections/LoginForm";
 import { authActions } from "../../store/auth";
 import AuthImage from "../UI/AuthImage";
 import Heading from "../UI/Heading";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -13,6 +14,7 @@ const LoginPage = () => {
   const dispatch = useDispatch();
 
   const handleLogin = async (data) => {
+    toast.info("Logging in...");
     try {
       const response = await fetch("https://fakestoreapi.com/auth/login", {
         method: "POST",
@@ -30,19 +32,22 @@ const LoginPage = () => {
 
       if (response.ok) {
         dispatch(authActions.login({ userId: decodedToken.sub }));
+        toast.success("Logged in sucessfully");
         navigate("/");
       } else {
+        toast.error("Login failed");
         setErrorMessage(
           "Login failed. Please check your username and password."
         );
       }
     } catch (error) {
+      toast.error("Login failed");
       setErrorMessage("An error occurred. Please try again later.");
     }
   };
 
   return (
-    <div className="flex flex-row px-8 md:px-36 lg:px-36 py-6 sm:py-6 md:py-8 lg:py-10">
+    <div className="flex flex-row px-8 md:px-36 lg:px-36 py-6 sm:py-6 md:py-8 lg:py-10 mt-32 mb-56 md:mt-0 md:mb-24">
       <div className="hidden md:block lg:block md:w-1/2 lg:w-1/2">
         <AuthImage />
       </div>

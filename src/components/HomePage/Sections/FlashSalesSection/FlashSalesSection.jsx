@@ -8,11 +8,15 @@ import Button from "../../../UI/Button";
 import Heading from "../../../UI/Heading";
 import ProductsGrid from "../../../UI/ProductsGrid";
 import useFetchProducts from "../../../../hooks/useFetchProducts";
+import GridSkeleton from "../../../UI/GridSkeleton";
 
 const FlashSalesSection = () => {
   const scrollContainerRef = useRef(null);
   const navigate = useNavigate();
-  const { products } = useFetchProducts({ limit: 10, randomize: true });
+  const { products, loading } = useFetchProducts({
+    limit: 10,
+    randomize: true,
+  });
 
   const scrollLeft = () => {
     scrollContainerRef.current.scrollBy({
@@ -37,16 +41,19 @@ const FlashSalesSection = () => {
   return (
     <div className="flash-sales mt-16 mb-12 px-4 bg-white relative">
       <RedSubHeading subHeading="Today's" />
-      <div className="flex items-center justify-between">
+      <div className="flex items-start justify-between">
         <Heading text="Flash Sales" />
         <TimeRemaining />
       </div>
       <div className="relative">
-        <ProductsGrid
-          products={products}
-          scrollContainerRef={scrollContainerRef}
-          scroll
-        />
+        {loading && <GridSkeleton />}
+        {!loading && (
+          <ProductsGrid
+            products={products}
+            scrollContainerRef={scrollContainerRef}
+            scroll
+          />
+        )}
         <ScrollLeftButton scrollLeft={scrollLeft} />
         <ScrollRightButton scrollRight={scrollRight} />
       </div>

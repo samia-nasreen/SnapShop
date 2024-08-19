@@ -26,8 +26,8 @@ const BuyNowSection = () => {
         <div className="relative flex items-center space-x-2 md:space-x-4 mt-4 mb-4">
           <TimerCircle time={days} unit="Days" />
           <TimerCircle time={hours} unit="Hours" />
-          <TimerCircle time={minutes} unit="Minutes" />
-          <TimerCircle time={seconds} unit="Seconds" />
+          <TimerCircle time={minutes} unit="Mins" />
+          <TimerCircle time={seconds} unit="Secs" />
         </div>
         <a href="#" className="mt-4">
           <Button

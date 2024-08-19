@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import SideBar from "./Sections/SideBar";
 import ProfileForm from "./Sections/ProfileForm";
 import Breadcrumb from "../UI/Breadcrumb";
+import ProfileSkeleton from "../UI/ProfileSkeleton";
 
 const ProfilePage = () => {
   const [userData, setUserData] = useState(null);
@@ -30,9 +31,7 @@ const ProfilePage = () => {
   };
 
   if (!userData) {
-    return (
-      <div className="flex items-center justify-center p-4">Loading...</div>
-    );
+    return <ProfileSkeleton />;
   }
 
   return (
@@ -40,7 +39,7 @@ const ProfilePage = () => {
       <div className="container mx-auto mb-32 px-5">
         <div className="flex justify-between">
           <Breadcrumb parts={["Home", "My Account"]} className="ml-2" />
-          <div className="text-sm text-gray-500 mb-12">
+          <div className="text-sm text-gray-500  py-6">
             <span className="mr-1">Welcome!</span>
             <span className="text-red-500">
               {capitalizeFirstLetter(userData.name.firstname)}{" "}

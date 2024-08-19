@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="product-card max-w-64 shadow-inner rounded-lg md:p-4 relative overflow-hidden group cursor-pointer">
+    <div className="product-card max-w-44 md:max-w-64 shadow-inner rounded-lg md:p-4 relative overflow-hidden group cursor-pointer">
       <div className="relative w-full h-48 flex items-center justify-center overflow-hidden">
         <Link to={`/products/${product.id}`}>
           <img
@@ -45,16 +45,16 @@ const ProductCard = ({ product }) => {
       <div className="mt-4">
         <h3 className="text-sm font-medium text-gray-900">{product.name}</h3>
         <div className="flex items-center mt-2">
-          <span className="text-lg font-medium text-red-500">
+          <span className="md:text-lg font-medium text-red-500">
             ${product.price}
           </span>
-          <span className="text-sm text-gray-600 ml-2 line-through">
+          <span className="text-xs md:text-sm text-gray-600 ml-2 line-through">
             ${product.originalPrice}
           </span>
         </div>
         <div className="flex items-center mt-2">
           <Rating rating={product.rating} size="4" />
-          <span className="ml-1 text-sm text-gray-600">
+          <span className="ml-1 text-xs md:text-sm text-gray-600">
             ({product.ratingCount})
           </span>
         </div>

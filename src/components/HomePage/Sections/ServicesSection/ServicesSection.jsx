@@ -1,14 +1,10 @@
 import DeliveryIcon from "/assets/icon-delivery.png";
 import CustomerServiceIcon from "/assets/icon-headphone.png";
 import MoneyBackIcon from "/assets/icon-secure.png";
-import UpArrowIcon from "/assets/arrow_up_icon.png";
+import ScrollToTopButton from "../../../UI/ScrollToTopButton";
 import ServiceItem from "./ServiceItem";
 
 const ServicesSection = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <div className="services-section my-16 px-16 py-8 relative">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -32,12 +28,7 @@ const ServicesSection = () => {
         />
       </div>
       <div className="flex justify-end -mr-8 mt-24 -mb-12">
-        <button
-          className="bg-gray-200 p-4 rounded-full shadow-lg hover:bg-gray-300 transition"
-          onClick={scrollToTop}
-        >
-          <img src={UpArrowIcon} alt="Back to top" className="w-6 h-6" />
-        </button>
+        <ScrollToTopButton />
       </div>
     </div>
   );

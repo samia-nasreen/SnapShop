@@ -4,11 +4,11 @@ import Heading from "../UI/Heading";
 
 const SignUpPage = () => {
   return (
-    <div className="flex flex-row px-8 md:px-36 lg:px-36 py-6 sm:py-6 md:py-8 lg:py-10">
+    <div className="flex flex-row px-8 md:px-36 py-6 md:py-8 lg:py-10 mb-24">
       <div className="hidden md:block lg:block md:w-1/2 lg:w-1/2">
         <AuthImage />
       </div>
-      <div className="w-full md:w-1/2 lg:w-1/2 flex flex-col justify-center md:pl-24 lg:pl-24">
+      <div className="w-full md:w-1/2 flex flex-col justify-center md:pl-24">
         <Heading
           text="Create an account"
           fontSize="text-xl sm:text-2xl md:text-3xl lg:text-3xl"

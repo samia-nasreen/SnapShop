@@ -10,6 +10,7 @@ import CartSummary from "./Sections/CartSummary";
 import CheckoutForm from "./Sections/CheckoutForm";
 import Heading from "../UI/Heading";
 import Breadcrumb from "../UI/Breadcrumb";
+import { toast } from "react-toastify";
 
 const Checkout = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -36,11 +37,12 @@ const Checkout = () => {
     dispatch(ordersActions.placeOrder(orderDetails));
     dispatch(cartActions.clearCart());
     console.log(data);
+    toast.success("Your order has been placed");
     navigate("/");
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="container mx-auto px-8 pb-32 grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div className="lg:pr-24">
         <Breadcrumb parts={["Account", "My Account", "Cart", "Checkout"]} />
         <Heading text="Billing Details" />

@@ -6,6 +6,7 @@ import GoogleSignUpButton from "./GoogleSignUpButton";
 import LoginLink from "./LoginLink";
 import Button from "../../UI/Button";
 import LineInput from "../../UI/LineInput";
+import { toast } from "react-toastify";
 
 const SignUpForm = () => {
   const {
@@ -19,11 +20,12 @@ const SignUpForm = () => {
 
   const handleFormSubmit = (data) => {
     console.log(data);
+    toast.success("Registration successful");
     reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)} className="w-full max-w-md">
+    <form onSubmit={handleSubmit(handleFormSubmit)} className="w-full">
       <LineInput
         label="email"
         register={register}
@@ -66,13 +68,14 @@ const SignUpForm = () => {
         type="text"
         placeholder="Phone"
       />
-      <Button
-        text="CreateAccount"
-        fontSize="base"
-        onClick={handleSubmit(handleFormSubmit)}
-        className="min-w-full"
-      />
-      <GoogleSignUpButton />
+      <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+        <Button
+          text="Create Account"
+          fontSize="base"
+          onClick={handleSubmit(handleFormSubmit)}
+        />
+        <GoogleSignUpButton />
+      </div>
       <LoginLink />
     </form>
   );

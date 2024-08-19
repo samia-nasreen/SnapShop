@@ -30,7 +30,7 @@ const Wishlist = () => {
         )}
       </div>
       <EmptyMessage
-        message="No items added to wishlist"
+        message="Your wishlist is empty"
         isEmpty={isWishlistEmpty}
       />
       <ProductsGrid products={wishlist} />

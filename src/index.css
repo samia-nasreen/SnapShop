@@ -21,7 +21,7 @@
 }
 
 .btn {
-  @apply py-4 rounded text-white;
+  @apply py-4 px-8 rounded text-white;
 }
 
 .btn-primary {

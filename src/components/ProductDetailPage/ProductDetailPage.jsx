@@ -3,23 +3,29 @@ import ProductDetail from "./Sections/ProductDetail/ProductDetail";
 import RelatedItems from "./Sections/RelatedItems/RelatedItems";
 import Breadcrumb from "../UI/Breadcrumb";
 import useFetchProduct from "../../hooks/useFetchProduct";
+import ProductDetailSkeleton from "../UI/ProductDetailSkeleton";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
   const { product, loading } = useFetchProduct(productId);
 
-  if (loading) {
-    return <div className="flex justify-center p-8">Loading...</div>;
-  }
-
   return (
     <div className="px-8 md:px-28">
       <Breadcrumb
-        parts={["Account", product.category, product.name]}
+        parts={[
+          "Account",
+          product ? product.category : "Loading...",
+          product ? product.name : "Loading...",
+        ]}
         className="ml-4"
       />
-      <ProductDetail product={product} />
-      <RelatedItems category={product.category} />
+      {loading && <ProductDetailSkeleton />}
+      {!loading && product && (
+        <>
+          <ProductDetail product={product} />
+          <RelatedItems category={product.category} />
+        </>
+      )}
     </div>
   );
 };

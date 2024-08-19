@@ -50,12 +50,11 @@ const ProfileForm = ({ userData, onSubmit, capitalizeFirstLetter }) => {
         </div>
         <PasswordChange register={register} errors={errors} />
         <div className="flex justify-end space-x-4">
-          <button type="button" className="px-4 py-2">
+          <button type="button" className="md:px-4 py-2">
             Cancel
           </button>
           <Button
             text="Save Changes"
-            fontSize="base"
             onClick={handleSubmit(onSubmit)}
           />
         </div>
