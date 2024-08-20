@@ -25,7 +25,7 @@ const AccountMenuOptions: React.FC<AccountMenuOptionsProps> = ({
       />
       <MenuItem
         icon={LuShoppingBag}
-        text="My Order"
+        text="My Orders"
         href="#orders"
         onClick={closeDropdown}
       />
