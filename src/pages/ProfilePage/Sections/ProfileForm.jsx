@@ -12,7 +12,7 @@ const ProfileForm = ({ userData, onSubmit, capitalizeFirstLetter }) => {
   } = useForm();
 
   return (
-    <div className="bg-white py-10 px-20 rounded shadow-[0px_0px_8px_2px_rgba(0,0,0,0.05)]">
+    <div className="bg-white py-10 px-10 sm:px-20 rounded shadow-[0px_0px_8px_2px_rgba(0,0,0,0.05)]">
       <h2 className="text-2xl font-medium text-red-500 mb-5">
         Edit Your Profile
       </h2>

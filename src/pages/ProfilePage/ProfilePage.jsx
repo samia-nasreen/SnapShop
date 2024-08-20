@@ -49,7 +49,7 @@ const ProfilePage = () => {
         </div>
         <div className="w-full flex">
           <SideBar />
-          <div className="w-full md:w-3/4 pl-5">
+          <div className="w-full md:w-3/4 pl-2 md:pl-5">
             <ProfileForm
               userData={userData}
               onSubmit={onSubmit}
