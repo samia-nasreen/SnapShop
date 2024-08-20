@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import ProductCard from "./ProductCard/ProductCard";
+import ProductCard from "./ProductCard";
 
 const ProductsGrid = ({
   products,
