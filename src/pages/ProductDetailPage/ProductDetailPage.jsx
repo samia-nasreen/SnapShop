@@ -10,7 +10,7 @@ const ProductDetailPage = () => {
   const { product, loading } = useFetchProduct(productId);
 
   return (
-    <div className="px-8 md:px-28">
+    <div className="px-1 md:px-28">
       <Breadcrumb
         parts={[
           "Account",

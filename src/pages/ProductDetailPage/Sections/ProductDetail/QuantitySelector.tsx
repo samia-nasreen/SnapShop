@@ -66,7 +66,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({ product }) => {
           +
         </button>
       </div>
-      <Button text="Add To Cart" onClick={handleAddToCart} />
+      <Button text="Add" onClick={handleAddToCart} />
     </div>
   );
 };
