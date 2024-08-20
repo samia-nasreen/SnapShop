@@ -49,7 +49,7 @@ const NavBar = () => {
           <NavItem to="/signup">Sign Up</NavItem>
         </ul>
         <div className="flex items-center space-x-4">
-          <SearchBar className="hidden md:block" />
+          <SearchBar className="hidden lg:block" />
           <IconWithBadge
             Icon={AiOutlineHeart}
             count={wishlistCount}
