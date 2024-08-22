@@ -1,6 +1,6 @@
 const QuickLink = () => {
   return (
-    <div className="w-full md:-ml-10 sm:w-1/2 lg:w-1/5 px-4 mb-6">
+    <div className="w-full px-4 mb-6">
       <h2 className="text-lg font-normal mb-4">Quick Link</h2>
       <ul>
         <li className="mb-2">

@@ -1,6 +1,6 @@
 const DownloadApp = () => {
   return (
-    <div className="w-full md:-ml-10 sm:w-1/2 lg:w-1/5 px-4 mb-6">
+    <div className="w-full px-4 mb-6">
       <h2 className="text-lg font-normal mb-4">Download App</h2>
       <p className="mb-3 text-xs text-gray-400">
         Save $3 with App New User Only

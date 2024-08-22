@@ -2,7 +2,7 @@ import sendIcon from "/assets/send_icon.png";
 
 const Exclusive = () => {
   return (
-    <div className="w-full sm:w-1/2 lg:w-1/5 px-4 mb-6">
+    <div className="w-full px-4 mb-6">
       <h2 className="text-xl font-bold mb-4">Exclusive</h2>
       <p className="mb-5 text-lg">Subscribe</p>
       <p className="mb-3 text-sm font-light">Get 10% off your first order</p>

@@ -7,7 +7,7 @@ import Support from "./Sections/Support";
 const Footer = () => {
   return (
     <footer className="bg-black pt-16 text-white">
-      <div className="container px-10 mx-auto flex flex-wrap justify-between">
+      <div className="container px-10 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-between">
         <Exclusive />
         <Support />
         <Account />

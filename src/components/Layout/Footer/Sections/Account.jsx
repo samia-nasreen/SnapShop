@@ -1,6 +1,6 @@
 const Account = () => {
   return (
-    <div className="w-full sm:w-1/2 lg:w-1/5 px-4 mb-6">
+    <div className="w-full px-4 mb-6">
       <h2 className="text-lg font-normal mb-4">Account</h2>
       <ul>
         <li className="mb-2">
