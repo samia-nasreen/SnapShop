@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Product } from "../types/product";
 
-export interface FetchProductsOptions {
+interface FetchProductsOptions {
   limit?: number;
   minRating?: number;
   randomize?: boolean;

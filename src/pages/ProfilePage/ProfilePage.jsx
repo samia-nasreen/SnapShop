@@ -4,23 +4,19 @@ import SideBar from "./Sections/SideBar";
 import ProfileForm from "./Sections/ProfileForm";
 import Breadcrumb from "../../components/UI/Breadcrumb";
 import ProfileSkeleton from "./ProfileSkeleton";
+import { useGetCurrentUserQuery } from "../../api/usersApi";
 
 const ProfilePage = () => {
-  const [userData, setUserData] = useState(null);
-  const userId = useSelector((state) => state.auth.userId);
+  const current = useSelector((state) => state.auth.userId);
+  const [userId, setUserId] = useState();
 
   useEffect(() => {
-    if (userId) {
-      fetch(`https://fakestoreapi.com/users/${userId}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setUserData(data);
-        })
-        .catch((error) => {
-          console.error("Error fetching user data:", error);
-        });
+    if (current) {
+      setUserId(current);
     }
-  }, [userId]);
+  }, [current]);
+
+  const { data: userData, isLoading, isError } = useGetCurrentUserQuery(userId);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -30,8 +26,16 @@ const ProfilePage = () => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  if (!userData) {
+  if (isLoading) {
     return <ProfileSkeleton />;
+  }
+
+  if (isError) {
+    return (
+      <p className="max-h-screen flex justify-center py-80">
+        Something went wrong!
+      </p>
+    );
   }
 
   return (
