@@ -7,16 +7,18 @@ import RedSubHeading from "../../../../components/UI/RedSubHeading";
 import Button from "../../../../components/UI/Button";
 import Heading from "../../../../components/UI/Heading";
 import ProductsGrid from "../../../../components/UI/ProductsGrid";
-import useFetchProducts from "../../../../hooks/useFetchProducts";
 import GridSkeleton from "../../../../components/UI/GridSkeleton";
+import { useGetAllProductsQuery } from "../../../../api/productsApi";
 
 const FlashSalesSection = () => {
   const scrollContainerRef = useRef(null);
   const navigate = useNavigate();
-  const { products, loading } = useFetchProducts({
-    limit: 10,
-    randomize: true,
-  });
+  const {
+    data: products,
+    error,
+    isError,
+    isLoading,
+  } = useGetAllProductsQuery({ limit: 10, randomize: true });
 
   const scrollLeft = () => {
     scrollContainerRef.current.scrollBy({
@@ -46,14 +48,15 @@ const FlashSalesSection = () => {
         <TimeRemaining />
       </div>
       <div className="relative">
-        {loading && <GridSkeleton />}
-        {!loading && (
+        {isLoading && <GridSkeleton />}
+        {!isLoading && (
           <ProductsGrid
             products={products}
             scrollContainerRef={scrollContainerRef}
             scroll
           />
         )}
+        {isError && <p>Error occured: {error}</p>}
         <ScrollLeftButton scrollLeft={scrollLeft} />
         <ScrollRightButton scrollRight={scrollRight} />
       </div>

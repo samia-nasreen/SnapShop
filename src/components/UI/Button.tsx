@@ -2,12 +2,13 @@ import React from "react";
 
 interface ButtonProps {
   text: string;
-  onClick: () => void;
+  onClick?: () => void;
   fontSize?: string;
   color?: string;
   hoverColor?: string;
   isDisabled?: boolean;
   className?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,9 +19,11 @@ const Button: React.FC<ButtonProps> = ({
   hoverColor = "hover:bg-red-600",
   isDisabled = false,
   className = "",
+  type = "button",
 }) => {
   return (
     <button
+      type={type}
       onClick={onClick}
       disabled={isDisabled}
       className={`

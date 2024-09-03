@@ -27,62 +27,58 @@ const SignUpForm: React.FC = () => {
     resolver: yupResolver(signUpSchema),
   });
 
-  const handleFormSubmit: SubmitHandler<SignUpFormValues> = (data) => {
+  const onSubmit: SubmitHandler<SignUpFormValues> = (data) => {
     console.log(data);
     toast.success("Registration successful");
     reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)} className="w-full">
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full">
       <LineInput
-        label="email"
+        name="email"
         register={register}
         errors={errors}
         type="email"
         placeholder="Email"
       />
       <LineInput
-        label="username"
+        name="username"
         register={register}
         errors={errors}
         type="text"
         placeholder="Username"
       />
       <LineInput
-        label="password"
+        name="password"
         register={register}
         errors={errors}
         type="password"
         placeholder="Password"
       />
       <LineInput
-        label="name"
+        name="name"
         register={register}
         errors={errors}
         type="text"
         placeholder="Name"
       />
       <LineInput
-        label="address"
+        name="address"
         register={register}
         errors={errors}
         type="text"
         placeholder="Address"
       />
       <LineInput
-        label="phone"
+        name="phone"
         register={register}
         errors={errors}
         type="text"
         placeholder="Phone"
       />
       <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
-        <Button
-          text="Create Account"
-          fontSize="base"
-          onClick={handleSubmit(handleFormSubmit)}
-        />
+        <Button text="Create Account" fontSize="base" type="submit" />
         <GoogleSignUpButton />
       </div>
       <LoginLink />

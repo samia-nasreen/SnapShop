@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  useForm,
-  SubmitHandler,
-  UseFormRegister,
-  FieldValues,
-} from "react-hook-form";
+import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 import PasswordChange from "./PasswordChange";
 import Button from "../../../components/UI/Button";
 import RoundedInput from "../../../components/UI/RoundedInput";
@@ -38,7 +33,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<UserData>();
 
   return (
     <div className="bg-white py-10 px-10 sm:px-20 rounded shadow-[0px_0px_8px_2px_rgba(0,0,0,0.05)]">
@@ -50,31 +45,35 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
           <RoundedInput
             label="First Name"
             name="firstName"
+            errors={errors}
             defaultValue={capitalizeFirstLetter(userData.name.firstname)}
             register={register}
-            readOnly
+            required
           />
           <RoundedInput
             label="Last Name"
             name="lastName"
+            errors={errors}
             defaultValue={capitalizeFirstLetter(userData.name.lastname)}
             register={register}
-            readOnly
+            required
           />
           <RoundedInput
             label="Email"
             name="email"
             type="email"
+            errors={errors}
             defaultValue={userData.email}
             register={register}
-            readOnly
+            required
           />
           <RoundedInput
             label="Address"
             name="address"
+            errors={errors}
             defaultValue={`${userData.address.street}, ${userData.address.number}, ${userData.address.city}, ${userData.address.zipcode}`}
             register={register}
-            readOnly
+            required
           />
         </div>
         <PasswordChange register={register} errors={errors} />
@@ -82,7 +81,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({
           <button type="button" className="md:px-4 py-2">
             Cancel
           </button>
-          <Button text="Save Changes" onClick={handleSubmit(onSubmit)} />
+          <Button text="Save Changes" type="submit" />
         </div>
       </form>
     </div>

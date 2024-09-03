@@ -6,9 +6,8 @@ interface RoundedInputProps {
   name: string;
   type?: string;
   defaultValue?: string;
-  readOnly?: boolean;
-  register?: UseFormRegister<any>;
-  errors?: FieldErrors<any>;
+  register: UseFormRegister<any>;
+  errors: FieldErrors<any>;
   required?: boolean;
   placeholder?: string;
 }
@@ -18,7 +17,6 @@ const RoundedInput: React.FC<RoundedInputProps> = ({
   name,
   type = "text",
   defaultValue,
-  readOnly,
   register,
   errors,
   required = false,
@@ -37,8 +35,7 @@ const RoundedInput: React.FC<RoundedInputProps> = ({
         placeholder={placeholder}
         className="block w-full p-4 border-none bg-zinc-100 rounded-md"
         defaultValue={defaultValue}
-        readOnly={readOnly}
-        {...(register && register(name, { required }))}
+        {...register(name, { required })}
       />
       {errors && errors[name] && (
         <p className="text-red-500 text-sm">

@@ -3,7 +3,7 @@ import { UseFormRegister, FieldValues, FieldErrors } from "react-hook-form";
 import RoundedInput from "../../../components/UI/RoundedInput";
 
 interface PasswordChangeProps {
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegister<any>;
   errors: FieldErrors<FieldValues>;
 }
 
@@ -22,7 +22,6 @@ const PasswordChange: React.FC<PasswordChangeProps> = ({
         placeholder="Current Password"
         register={register}
         errors={errors}
-        required
       />
       <RoundedInput
         type="password"
@@ -30,7 +29,6 @@ const PasswordChange: React.FC<PasswordChangeProps> = ({
         placeholder="New Password"
         register={register}
         errors={errors}
-        required
       />
       <RoundedInput
         type="password"
@@ -38,7 +36,6 @@ const PasswordChange: React.FC<PasswordChangeProps> = ({
         placeholder="Confirm New Password"
         register={register}
         errors={errors}
-        required
       />
     </div>
   </div>

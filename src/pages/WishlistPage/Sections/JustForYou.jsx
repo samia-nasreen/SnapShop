@@ -2,12 +2,17 @@ import { useNavigate } from "react-router-dom";
 import RedSubHeading from "../../../components/UI/RedSubHeading";
 import TransparentButton from "../../../components/UI/TransparentButton";
 import ProductsGrid from "../../../components/UI/ProductsGrid";
-import useFetchProducts from "../../../hooks/useFetchProducts";
 import GridSkeleton from "../../../components/UI/GridSkeleton";
+import { useGetAllProductsQuery } from "../../../api/productsApi";
 
 const JustForYou = () => {
   const navigate = useNavigate();
-  const { products, loading } = useFetchProducts({ randomize: true, count: 4 });
+  const {
+    data: products,
+    error,
+    isError,
+    isLoading,
+  } = useGetAllProductsQuery({ randomize: true, count: 4 });
 
   const handleSeeAllButton = () => {
     navigate("/products");
@@ -19,8 +24,9 @@ const JustForYou = () => {
         <RedSubHeading subHeading="Just For You" />
         <TransparentButton text="See All" onClick={handleSeeAllButton} />
       </div>
-      {loading && <GridSkeleton />}
-      {!loading && <ProductsGrid products={products} />}
+      {isLoading && <GridSkeleton />}
+      {!isLoading && <ProductsGrid products={products} />}
+      {isError && <p>Error occured: {error}</p>}
     </div>
   );
 };

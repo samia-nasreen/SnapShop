@@ -2,12 +2,17 @@ import { useParams } from "react-router-dom";
 import ProductDetail from "./Sections/ProductDetail/ProductDetail";
 import RelatedItems from "./Sections/RelatedItems/RelatedItems";
 import Breadcrumb from "../../components/UI/Breadcrumb";
-import useFetchProduct from "../../hooks/useFetchProduct";
 import ProductDetailSkeleton from "./ProductDetailSkeleton";
+import { useGetProductQuery } from "../../api/productsApi";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
-  const { product, loading } = useFetchProduct(productId);
+  const {
+    data: product,
+    error,
+    isError,
+    isLoading,
+  } = useGetProductQuery(productId);
 
   return (
     <div className="px-1 md:px-28">
@@ -19,13 +24,14 @@ const ProductDetailPage = () => {
         ]}
         className="ml-4"
       />
-      {loading && <ProductDetailSkeleton />}
-      {!loading && product && (
+      {isLoading && <ProductDetailSkeleton />}
+      {!isLoading && product && (
         <>
           <ProductDetail product={product} />
           <RelatedItems category={product.category} />
         </>
       )}
+      {isError && <p>Error occured: {error}</p>}
     </div>
   );
 };
