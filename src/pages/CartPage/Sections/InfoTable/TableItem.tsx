@@ -1,19 +1,7 @@
 import React from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import formatCurrency from "../../../../utils/formatCurrency";
-
-interface CartItem {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  originalPrice: string;
-  category: string;
-  rating: number;
-  ratingCount: number;
-  quantity: number;
-  totalPrice: number;
-}
+import { CartItem } from "../../../../types/cartItem";
 
 interface TableItemProps {
   item: CartItem;

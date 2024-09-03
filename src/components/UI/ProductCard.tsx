@@ -1,23 +1,11 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { cartActions } from '../../store/cart';
-import { RootState } from '../../store'; 
-import Rating from './Rating';
-import WishListIcon from './WishlistIcon';
-
-interface Product {
-  id: number;
-  name: string;
-  image: string;
-  discount: number;
-  price: number;
-  originalPrice: string;
-  category: string;
-  rating: number;
-  ratingCount: number;
-  totalPrice?: number;
-}
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { cartActions } from "../../store/cart";
+import { RootState } from "../../store";
+import Rating from "./Rating";
+import WishListIcon from "./WishlistIcon";
+import { Product } from "../../types/product";
 
 interface ProductCardProps {
   product: Product;
@@ -31,7 +19,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   const handleAddToCart = () => {
     if (!isInCart) {
-      dispatch(cartActions.addToCart({ ...product, quantity: 1, totalPrice: product.price }));
+      dispatch(
+        cartActions.addToCart({
+          ...product,
+          quantity: 1,
+          totalPrice: product.price,
+        })
+      );
     }
   };
 

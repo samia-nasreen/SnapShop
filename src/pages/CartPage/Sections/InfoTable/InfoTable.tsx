@@ -1,19 +1,7 @@
 import React from "react";
 import TableHeader from "./TableHeader";
 import TableItem from "./TableItem";
-
-interface CartItem {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  originalPrice: string;
-  category: string;
-  rating: number;
-  ratingCount: number;
-  quantity: number;
-  totalPrice: number;
-}
+import { CartItem } from "../../../../types/cartItem";
 
 interface InfoTableProps {
   cartItems: CartItem[];

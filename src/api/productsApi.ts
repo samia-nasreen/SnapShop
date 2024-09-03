@@ -1,6 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Product } from "../types/product";
-import { FetchProductsOptions } from "../types/fetchProductOptions";
+
+export interface FetchProductsOptions {
+  limit?: number;
+  minRating?: number;
+  randomize?: boolean;
+  count?: number;
+}
 
 export const productsApi = createApi({
   reducerPath: "productsApi",
@@ -41,6 +47,7 @@ export const productsApi = createApi({
           category: product.category,
           rating: product.rating.rate,
           ratingCount: product.rating.count,
+          description: product.description,
         }));
       },
     }),
@@ -57,6 +64,7 @@ export const productsApi = createApi({
         category: product.category,
         rating: product.rating.rate,
         ratingCount: product.rating.count,
+        description: product.description,
       }),
     }),
 
@@ -77,6 +85,7 @@ export const productsApi = createApi({
           category: product.category,
           rating: product.rating.rate,
           ratingCount: product.rating.count,
+          description: product.description,
         }));
       },
     }),

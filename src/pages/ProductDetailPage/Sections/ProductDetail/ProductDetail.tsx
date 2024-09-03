@@ -6,19 +6,7 @@ import Colors from "./Colors";
 import Sizes from "./Sizes";
 import ImageGrid from "./ImageGrid";
 import QuantitySelector from "./QuantitySelector";
-
-interface Product {
-  id: number;
-  name: string;
-  image: string;
-  discount: number;
-  price: number;
-  originalPrice: string;
-  category: string;
-  rating: number;
-  ratingCount: number;
-  description: string;
-}
+import { Product } from "../../../../types/product";
 
 interface ProductDetailProps {
   product: Product;

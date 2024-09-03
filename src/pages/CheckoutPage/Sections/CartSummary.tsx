@@ -1,20 +1,8 @@
-import React from 'react';
-import PlaceOrder from './PlaceOrder';
-import CartSummaryItem from '../../../components/UI/CartSummaryItem';
-import { UseFormRegister, UseFormHandleSubmit } from 'react-hook-form';
-
-interface CartItem {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  originalPrice: string;
-  category: string;
-  rating: number;
-  ratingCount: number;
-  quantity: number;
-  totalPrice: number;
-}
+import React from "react";
+import PlaceOrder from "./PlaceOrder";
+import CartSummaryItem from "../../../components/UI/CartSummaryItem";
+import { UseFormRegister, UseFormHandleSubmit } from "react-hook-form";
+import { CartItem } from "../../../types/cartItem";
 
 interface CartSummaryProps {
   cartItems: CartItem[];

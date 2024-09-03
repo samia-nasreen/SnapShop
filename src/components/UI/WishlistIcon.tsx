@@ -1,19 +1,8 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../store/index'; 
-import { wishlistActions } from '../../store/wishlist';
-
-interface Product {
-  id: number;
-  name: string;
-  image: string;
-  discount: number;
-  price: number;
-  originalPrice: string;
-  category: string;
-  rating: number;
-  ratingCount: number;
-}
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/index";
+import { wishlistActions } from "../../store/wishlist";
+import { Product } from "../../types/product";
 
 interface WishListIconProps {
   product: Product;
@@ -24,9 +13,9 @@ interface WishListIconProps {
 
 const WishListIcon: React.FC<WishListIconProps> = ({
   product,
-  className = '',
-  size = '9',
-  radius = 'rounded-md',
+  className = "",
+  size = "9",
+  radius = "rounded-md",
 }) => {
   const dispatch = useDispatch<AppDispatch>();
   const wishlist = useSelector((state: RootState) => state.wishlist.items);
@@ -48,8 +37,8 @@ const WishListIcon: React.FC<WishListIconProps> = ({
     >
       <svg
         className={`w-${size} h-${size} p-1`}
-        fill={isInWishlist ? '#ef4444' : 'none'}
-        stroke={isInWishlist ? '#ef4444' : 'black'}
+        fill={isInWishlist ? "#ef4444" : "none"}
+        stroke={isInWishlist ? "#ef4444" : "black"}
         strokeWidth="1.5"
         viewBox="0 0 24 24"
       >
