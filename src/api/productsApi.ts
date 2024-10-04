@@ -89,6 +89,23 @@ export const productsApi = createApi({
         }));
       },
     }),
+
+    getCategoryProducts: builder.query<Product[], string>({
+      query: (category) => `/products/category/${category}`,
+      transformResponse: (products: any[]) =>
+        products.map((product) => ({
+          id: product.id,
+          name: product.title,
+          image: product.image,
+          discount: Math.floor(Math.random() * 50) + 10,
+          price: product.price,
+          originalPrice: (product.price * (1 + Math.random() * 0.5)).toFixed(2),
+          category: product.category,
+          rating: product.rating.rate,
+          ratingCount: product.rating.count,
+          description: product.description,
+        })),
+    }),
   }),
 });
 
@@ -96,4 +113,5 @@ export const {
   useGetAllProductsQuery,
   useGetProductQuery,
   useGetRelatedProductsQuery,
+  useGetCategoryProductsQuery,
 } = productsApi;

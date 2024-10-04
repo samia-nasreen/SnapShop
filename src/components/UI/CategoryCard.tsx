@@ -7,11 +7,15 @@ interface Category {
 
 interface CategoryCardProps {
   category: Category;
+  onClick: () => void;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick }) => {
   return (
-    <div className="flex flex-col items-center p-4 md:p-8 border rounded-md hover:bg-red-100 transition">
+    <div
+      className="cursor-pointer flex flex-col items-center p-4 md:p-8 border rounded-md hover:bg-red-100 transition"
+      onClick={onClick}
+    >
       <img
         src={`/assets/${category.icon}`}
         alt={category.label}

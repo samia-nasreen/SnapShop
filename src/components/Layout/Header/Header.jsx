@@ -1,4 +1,4 @@
-import downarrow from "/assets/downarrow.svg";
+import downArrow from "/assets/downarrow.svg";
 
 const Header = () => {
   return (
@@ -13,7 +13,7 @@ const Header = () => {
       </div>
       <div className="flex items-center">
         <span className="text-sm mr-2">English</span>
-        <img src={downarrow} alt="Down Arrow" className="w-4 h-4 mr-24" />
+        <img src={downArrow} alt="Down Arrow" className="w-4 h-4 mr-24" />
       </div>
     </div>
   );

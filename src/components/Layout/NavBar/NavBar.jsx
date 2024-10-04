@@ -1,15 +1,16 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from 'react';
 import {
   AiOutlineHeart,
   AiOutlineShoppingCart,
   AiOutlineMenu,
-} from "react-icons/ai";
-import { useSelector } from "react-redux";
-import NavItem from "./Sections/NavItem";
-import IconWithBadge from "./Sections/IconWithBadge";
-import SearchBar from "./Sections/SearchBar";
-import SideBar from "./Sections/SideBar";
-import AccountMenu from "./Sections/AccountMenu/AccountMenu";
+} from 'react-icons/ai';
+import { useSelector } from 'react-redux';
+import NavItem from './Sections/NavItem';
+import IconWithBadge from './Sections/IconWithBadge';
+import SearchBar from './Sections/SearchBar';
+import SideBar from './Sections/SideBar';
+import AccountMenu from './Sections/AccountMenu/AccountMenu';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -29,24 +30,30 @@ const NavBar = () => {
     };
 
     if (isSidebarOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     }
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isSidebarOpen]);
 
   return (
     <div className="relative">
       <div className="bg-white h-20 md:h-24 flex items-baseline pt-6 md:pt-9 pb-2 justify-between px-8 md:px-32 border border-gray-300">
-        <div className="md:text-2xl font-bold text-xl">SnapShop</div>
+        <div className="md:text-2xl font-bold text-xl">
+          <Link to="/">SnapShop</Link>
+        </div>
         <ul className="hidden md:flex space-x-12">
           <NavItem to="/">Home</NavItem>
           <NavItem to="/contact">Contact</NavItem>
           <NavItem to="/about">About</NavItem>
-          <NavItem to="/signup">Sign Up</NavItem>
+          {!isAuthenticated ? (
+            <NavItem to="/signup">Sign Up</NavItem>
+          ) : (
+            <NavItem to="/orders">Orders</NavItem>
+          )}
         </ul>
         <div className="flex items-center space-x-4">
           <SearchBar className="hidden lg:block" />
@@ -71,6 +78,7 @@ const NavBar = () => {
         isSidebarOpen={isSidebarOpen}
         sidebarRef={sidebarRef}
         closeSidebar={closeSidebar}
+        isAuthenticated={isAuthenticated}
       />
     </div>
   );

@@ -1,10 +1,12 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CartItem } from '../types/cartItem';
 
 export interface Order {
   id: number;
-  productId: number;
-  quantity: number;
+  items: CartItem[];
+  totalQuantity: number;
   totalPrice: number;
+  createdAt: string;
 }
 
 export interface OrdersState {
@@ -15,12 +17,19 @@ const initialState: OrdersState = {
   orders: [],
 };
 
+let orderIdCounter = 1;
+
 const ordersSlice = createSlice({
-  name: "order",
+  name: 'order',
   initialState,
   reducers: {
-    placeOrder(state, action: PayloadAction<Order>) {
-      state.orders.push(action.payload);
+    placeOrder(state, action: PayloadAction<Omit<Order, 'id'>>) {
+      const newOrder: Order = {
+        ...action.payload,
+        id: orderIdCounter++,
+        createdAt: new Date().toISOString(),
+      };
+      state.orders.push(newOrder);
     },
   },
 });

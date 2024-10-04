@@ -1,7 +1,7 @@
 const SideBar = () => (
   <div
     className="fixed inset-y-0 left-0 w-64 bg-white z-40 md:relative md:translate-x-0 md:w-1/4 px-2 py-4 md:py-0 
-      translate-x-[-100%] md:translate-x-0 hidden md:block"
+      translate-x-[-100%] hidden md:block"
   >
     <ul className="space-y-4">
       <li className="text-lg font-medium">Manage My Account</li>

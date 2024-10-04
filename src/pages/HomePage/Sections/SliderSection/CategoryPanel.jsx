@@ -1,16 +1,34 @@
+import { useNavigate, useLocation } from "react-router-dom";
+import { categories } from "../../../../data/categories";
+
 const CategoryPanel = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleCategoryClick = (category) => {
+    navigate(`/products/category/${category}`);
+  };
+
+  const isActiveCategory = (category) => {
+    return location.pathname === `/products/category/${category}`;
+  };
+
   return (
     <div className="w-full p-4">
       <ul className="space-y-4">
-        <li className="cursor-pointer hover:text-gray-700">Woman&apos;s Fashion</li>
-        <li className="cursor-pointer hover:text-gray-700">Men&apos;s Fashion</li>
-        <li className="cursor-pointer hover:text-gray-700">Electronics</li>
-        <li className="cursor-pointer hover:text-gray-700">Jewellery</li>
-        <li className="cursor-pointer hover:text-gray-700">Medicine</li>
-        <li className="cursor-pointer hover:text-gray-700">Sports & Outdoor</li>
-        <li className="cursor-pointer hover:text-gray-700">Baby&apos;s & Toys</li>
-        <li className="cursor-pointer hover:text-gray-700">Groceries & Pets</li>
-        <li className="cursor-pointer hover:text-gray-700">Health & Beauty</li>
+        {categories.map((category) => (
+          <li
+            key={category.value}
+            className={`cursor-pointer hover:text-gray-700 ${
+              isActiveCategory(category.value)
+                ? "text-gray-700 font-semibold text-lg"
+                : ""
+            }`}
+            onClick={() => handleCategoryClick(category.value)}
+          >
+            {category.name}
+          </li>
+        ))}
       </ul>
     </div>
   );
